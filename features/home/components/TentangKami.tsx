@@ -10,20 +10,9 @@ export default function TentangKami() {
             <div className="absolute bottom-0 left-0 w-1/3 h-1/3 
             bg-gradient-to-tr from-red-100 to-transparent opacity-35 z-0"></div>
 
-<div className="absolute -bottom-20 -left-20 w-64 h-64 z-0 opacity-80">
-                <UiImage
-                    src="/assets/home/bg_side_tentangkami_left.png"
-                    alt="Background Left"
-                    fill
-                    className="object-contain
-                    w-full h-full"
-                />
-            </div>
-            
-
             {/* Background Pattern - Top Right */}
             <div className="absolute -top-12 right-0 w-68 h-68 opacity-80 z-0">
-                <UiImage src="/assets/home/bg_side_tentangkami_right.png" alt="Tentang Kami Section" fill className="object-contain object-right w-full h-full " />
+                <UiImage src="/assets/home/bg_side_tentang_kami_right.png" alt="Tentang Kami Section" fill className="object-contain object-right w-full h-full " />
             </div>
             
             {/* Main Content */}
@@ -64,7 +53,7 @@ export default function TentangKami() {
                 </div>
                 
                 {/* Statistics */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mb-6 w-full max-w-lg">
+                <div className="grid grid-cols-3 md:grid-cols-3 gap-0 mb-6 w-full max-w-lg">
                     <div className="text-center">
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
                             2015
@@ -96,7 +85,7 @@ export default function TentangKami() {
                     <Button 
                         variant="secondary" 
                         size="sm"
-                        className="px-4 py-2 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                        className="px-4 cursor-pointer py-2 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300"
                     >
                         Selengkapnya
                     </Button>
@@ -105,8 +94,8 @@ export default function TentangKami() {
         </section>
 
             {/* Robot head graphic - Background */}
-            <div className="absolute bottom-20 -left-8 w-42 h-42  z-0  relative">
-                <UiImage src="/assets/home/robot_tentangkami.png" alt="Robot Tentang Kami" fill className="object-contain object-bottom w-full h-full " />
+            <div className="absolute bottom-20 -left-8 w-32 h-32 sm:w-42 sm:h-42  z-0  relative">
+                <UiImage src="/assets/home/robot_tentangkami4x.png" alt="Robot Tentang Kami" fill className="object-contain object-bottom w-full h-full " />
             </div>
             
 

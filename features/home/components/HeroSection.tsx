@@ -60,7 +60,7 @@ export default function HeroSection() {
     }, [api, images]);
 
     return (
-        <div className="w-full font-sans relative min-h-screen flex flex-col items-center px-4 pb-24 overflow-hidden">
+        <div className="w-full font-sans relative min-h-screen flex flex-col items-center px-4 pb-8 sm:pb-16 md:pb-24 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute -top-[2%] -left-[30%] w-[70%] h-auto aspect-[325/485] sm:-top-[15%] sm:-left-[15%] sm:w-[50%] sm:aspect-[572/485]">
                 <UiImage src="/assets/home/bg_side.png" alt="Hero Section" fill className="object-cover object-right w-full h-full sm:object-cover" />
@@ -86,7 +86,7 @@ export default function HeroSection() {
             <div className="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-[30%] w-[582px] h-[843px] opacity-13 blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
 
             {/* Carousel */}
-            <div className="absolute top-[50%] sm:top-[40%] w-full z-10">
+            <div className="absolute top-[40%] sm:top-[40%] w-full z-10">
                 <Carousel
                     setApi={setApi}
                     plugins={[
@@ -97,11 +97,11 @@ export default function HeroSection() {
                     opts={{
                         loop: true,
                     }}
-                    className="w-full"
+                    className="w-full overflow-visible"
                 >
-                    <CarouselContent className="-ml-2 flex items-center">
+                    <CarouselContent className="-ml-3 md:-ml-2 flex items-center">
                         {images.map((image, index) => (
-                            <CarouselItem key={image.id} className="pl-2 mb-5 basis-10/12 md:basis-9/12 lg:basis-7/12 flex justify-center items-center">
+                            <CarouselItem key={image.id} className="pl-2 basis-10/12 md:basis-9/12 lg:basis-7/12 flex justify-center items-center">
                                 <div
                                     className={cn(
                                         "relative overflow-hidden rounded-lg w-full aspect-[320/220] sm:aspect-[687/317] transition-all duration-300 ease-in-out",
@@ -134,4 +134,5 @@ export default function HeroSection() {
         </div>
     );
 }
+
 

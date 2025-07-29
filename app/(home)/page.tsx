@@ -11,8 +11,8 @@ export default function Home() {
     <div className="w-full font-sans overflow-x-hidden">
       <HeroSection />
       <TentangKami />
-      <ProgramKerja />
       <DivisiKami />
+      <ProgramKerja />
       <PrestasiKami />
     </div>
   );

@@ -60,7 +60,7 @@ export default function HeroSection() {
     }, [api, images]);
 
     return (
-        <div className="w-full font-sans relative h-screen flex flex-col items-center px-2 sm:px-4 -mb-4 sm:-mb-4 md:pb-24 overflow-hidden" style={{ height: 'calc(100vh + 4rem)' }}>
+        <div className="w-full font-sans relative h-[85vh] min-[480px]:h-[90vh] lg:h-[calc(100vh+4rem)] flex flex-col items-center px-2 sm:px-4 overflow-hidden">
             {/* Background Elements */}
             <div className="absolute -top-[5%] -left-[40%] w-[80%] h-auto aspect-[325/485] min-[480px]:-top-[2%] min-[480px]:-left-[30%] min-[480px]:w-[70%] sm:-top-[15%] sm:-left-[15%] sm:w-[50%] sm:aspect-[572/485]">
                 <UiImage src="/assets/home/bg_side.png" alt="Hero Section" fill className="object-cover object-right w-full h-full" />
@@ -71,7 +71,7 @@ export default function HeroSection() {
 
             {/* Title */}
             <div className="absolute top-[20%] min-[480px]:top-[17.5%] sm:top-[18%] z-20 flex flex-col items-center text-center max-w-2xl w-full px-2 sm:px-4">
-                <p className="text-sm min-[480px]:text-base md:text-2xl lg:text-4xl font-bold text-center">
+                <p className="text-lg min-[480px]:text-xl md:text-2xl lg:text-4xl font-bold text-center">
                     <span className="text-black">Empowering IT excellence through</span>
                     <br />
                     <span className="text-[#d80000]">innovation</span>
@@ -81,12 +81,12 @@ export default function HeroSection() {
             </div>
 
             {/* Gradient Blur */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30%] w-[300px] h-[250px] min-[480px]:w-[400px] min-[480px]:h-[350px] sm:w-[500px] sm:h-[450px] lg:w-[600px] lg:h-[500px] bg-gradient-to-br from-[#E2A7A4] via-[#D36973] to-[#5C183D] opacity-30 blur-[80px] min-[480px]:blur-[120px] sm:blur-[160px] rounded-full mix-blend-normal pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
-            <div className="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
+            <div className="absolute top-[65%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-[30%] w-[300px] h-[250px] min-[480px]:w-[400px] min-[480px]:h-[350px] sm:w-[500px] sm:h-[450px] lg:w-[600px] lg:h-[500px] bg-gradient-to-br from-[#E2A7A4] via-[#D36973] to-[#5C183D] opacity-30 blur-[80px] min-[480px]:blur-[120px] sm:blur-[160px] rounded-full mix-blend-normal pointer-events-none"></div>
+            <div className="hidden sm:block absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
+            <div className="hidden sm:block absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
 
-            {/* Carousel */}
-            <div className="absolute top-[42%] min-[480px]:top-[40%] sm:top-[40%] w-full z-10">
+            {/* Carousel - Positioned closer to bottom */}
+            <div className="absolute bottom-[8%] min-[480px]:bottom-[10%] sm:top-[40%] w-full z-10">
                 <Carousel
                     setApi={setApi}
                     plugins={[
@@ -121,7 +121,8 @@ export default function HeroSection() {
                         ))}
                     </CarouselContent>
                 </Carousel>
-                <div className="flex justify-center items-center gap-1 min-[480px]:gap-2 mt-6 min-[480px]:mt-8">
+                {/* Reduced margin-top for indicators */}
+                <div className="flex justify-center items-center gap-1 min-[480px]:gap-2 mt-8 min-[480px]:mt-10">
                     {images.map((_, index) => (
                         <button
                             key={index}

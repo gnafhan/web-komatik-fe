@@ -4,6 +4,7 @@ import HeroSection from "@/features/home/components/HeroSection";
 import PrestasiKami from "@/features/home/components/PrestasiKami";
 import TentangKami from "@/features/home/components/TentangKami";
 import ProgramKerja from "@/features/home/components/ProgramKerja";
+import DivisiKami from "@/features/home/components/DivisiKami";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <TentangKami />
       <ProgramKerja />
+      <DivisiKami />
       <PrestasiKami />
     </div>
   );

@@ -2,18 +2,29 @@ import { UiImage } from "./image";
 
 const DivisiCard = ({
     name,
+    description,
     image
 }:{
     name: string;
+    description: string;
     image: string;
 }) => {
     return(
-        <div className="bg-[#E6EBFE]/[0.3] backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-[#E6EBFE]/[0.4] transition-all duration-300 w-[300px] h-[120px] flex items-center justify-center">
-            <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 flex items-center justify-center">
-                    <UiImage src={image} alt={name} width={64} height={64} className="object-contain" />
+        <div className="group relative bg-white rounded-2xl pt-10 pb-14 md:pt-14 md:pb-20 lg:pt-10 lg:pb-20 px-6 md:px-10 lg:px-8 lg:hover:bg-red-500 w-80 max-md:w-64 lg:w-full h-[320px] md:h-[320px] lg:h-[260px] transition-all duration-300 ease-in-out shadow-md lg:hover:shadow-none flex flex-col justify-center">
+            <div className="flex flex-col items-center gap-5 md:gap-3 lg:gap-4 transition-opacity duration-300 lg:group-hover:opacity-0 h-full ">
+                <div className="relative w-2/3 flex items-center justify-center h-fit">
+                    <UiImage src={image} alt={name} width={90} height={92} className="object-contain w-full h-auto" />
                 </div>
-                <h3 className="font-bold text-white text-lg">{name}</h3>
+                <h3 className="font-bold text-red-500 text-center text-lg md:text-lg lg:text-xl">{name}</h3>
+                <p className="text-black text-center text-sm leading-tight block lg:hidden">
+                    {description}
+                </p>
+            </div>
+            
+            <div className="absolute inset-0 flex-col items-center justify-center opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 p-6 hidden sm:flex">
+                <p className="text-white text-center text-sm md:text-base leading-tight">
+                    {description}
+                </p>
             </div>
         </div>
     )

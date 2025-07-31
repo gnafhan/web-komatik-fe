@@ -1,5 +1,4 @@
 import { ProkerHero } from "@/components/ui/ProkerHero";
-import DivisiCard from "@/components/ui/DivisiCard";
 
 export default function LigaKomatikPage() {
   const ligaKomatikSteps = [

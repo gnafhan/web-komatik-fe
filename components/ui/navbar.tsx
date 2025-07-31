@@ -3,14 +3,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
-  { label: "Beranda", href: "#" },
+  { label: "Beranda", href: "/" },
   {
     label: "Program Kerja",
     href: "#",
     children: [
-      { label: "Gemastik", href: "#" },
-      { label: "Liga Komatik", href: "#" },
-      { label: "Trail", href: "#" },
+      { label: "Learning Session", href: "/proker/learning-session" },
+      { label: "Liga Komatik", href: "/proker/liga-komatik" },
+      { label: "Pendampingan Gemastik", href: "/proker/pendampingan-gemastik" },
     ],
   },
   { label: "Pengurus", href: "#" },

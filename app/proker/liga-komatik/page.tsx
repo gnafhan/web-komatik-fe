@@ -64,17 +64,27 @@ export default function LigaKomatikPage() {
           backgroundImage="/assets/proker/background.svg"
         />
 
-        <section className="py-16 px-4">
+        <section className="py-8 md:py-16 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#081936] mb-6">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#081936] mb-4 md:mb-6">
                 Apa itu Liga KOMATIK?
               </h2>
-              <div className="w-16 h-0.5 bg-red-600 mx-auto mb-8"></div>
+              <div className="w-12 md:w-16 h-0.5 bg-red-600 mx-auto mb-6 md:mb-8"></div>
             </div>
             
             <div className="bg-white rounded-2xl">
-              <p className="text-gray-700 leading-relaxed text-justify">
+              <p
+                className="text-gray-700"
+                style={{
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  lineHeight: '24px',
+                  letterSpacing: '0%',
+                  textAlign: 'left'
+                }}
+              >
                 <span className="font-bold text-[#D80000]">Liga KOMATIK</span> adalah program seleksi internal resmi Universitas Gadjah Mada untuk 
                 menentukan kontingen yang akan mewakili UGM di ajang GEMASTIK. Program ini terbuka 
                 bagi seluruh mahasiswa UGM dari berbagai fakultas dan program studi. Untuk dapat mengikuti GEMASTIK, setiap calon peserta wajib mengikuti seluruh 
@@ -84,57 +94,98 @@ export default function LigaKomatikPage() {
           </div>
         </section>
 
-        <section className="py-20 px-4" style={{background: 'linear-gradient(113.67deg, #0C2A5E -10.22%, #081936 62.39%, #030F22 107.98%)'}}>
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-4">Liga KOMATIK</h2>
-              <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-              <p className="text-white/80 max-w-3xl mx-auto text-left">
-                Tahap ini merupakan tahap pembinaan awal bagi peserta sebelum memasuki seleksi utama. Pada tahap ini, peserta mengikuti berbagai kegiatan untuk mengembangkan ide, memperkuat keterampilan teknis, dan menyiapkan proposal lomba GEMASTIK. Rangkaian Kegiatan Liga KOMATIK, yaitu :
-              </p>
+        <section className="py-12 md:py-20 px-4" style={{background: 'linear-gradient(113.67deg, #0C2A5E -10.22%, #081936 62.39%, #030F22 107.98%)'}}>
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">Liga KOMATIK</h2>
+              <div className="w-16 md:w-24 h-1 bg-red-600 mx-auto mb-6"></div>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <p
+              className="text-white/80 mb-8 md:mb-16 text-sm md:text-base"
+              style={{
+                opacity: 1,
+                fontFamily: 'Plus Jakarta Sans',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                lineHeight: '20px',
+                letterSpacing: '0%',
+                textAlign: 'left'
+              }}
+            >
+              Tahap ini merupakan tahap pembinaan awal bagi peserta sebelum memasuki seleksi utama. Pada tahap ini, peserta mengikuti berbagai kegiatan untuk mengembangkan ide, memperkuat keterampilan teknis, dan menyiapkan proposal lomba GEMASTIK. Rangkaian Kegiatan Liga KOMATIK, yaitu :
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
               {ligaKomatikSteps.map((step, index) => (
-                <div key={index} className="rounded-lg p-6 flex gap-6 items-center" style={{background: '#E6EBFE4D'}}>
-                  <div className="bg-white/20 text-white text-2xl font-bold rounded-md w-12 h-12 flex-shrink-0 flex items-center justify-center">
+                <div key={index} className="rounded-lg p-4 md:p-6 flex gap-4 md:gap-6 items-center" style={{background: '#E6EBFE4D'}}>
+                  <div className="bg-white/20 text-white text-lg md:text-2xl font-bold rounded-md w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
                     {index + 1}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl mb-2">{step.title}</h3>
-                    <p className="text-white/70 text-sm">{step.description}</p>
+                    <h3 className="text-white font-bold text-lg md:text-xl mb-1 md:mb-2">{step.title}</h3>
+                    <p className="text-white/70 text-xs md:text-sm">{step.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-white/80 text-center mt-12 max-w-3xl mx-auto">
+            <p
+              className="text-white/80 mt-8 md:mt-12 text-sm md:text-base"
+              style={{
+                fontFamily: 'Plus Jakarta Sans',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                lineHeight: '20px',
+                letterSpacing: '0%',
+                textAlign: 'left'
+              }}
+            >
               Di tahap ini, peserta akan mendapat pembekalan materi dan pendampingan dari mentor profesional serta alumni GEMASTIK. Hanya peserta yang lolos di tahap ini yang dapat lanjut ke tahap Pasca-Liga KOMATIK.
             </p>
           </div>
         </section>
 
-        <section className="py-20 px-4" style={{backgroundImage: 'url(/assets/proker/background2.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-[#081936] mb-4">Pasca-Liga KOMATIK</h2>
-              <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-              <p className="text-gray-600 max-w-3xl mx-auto">
+        <section className="py-12 md:py-20 px-4" style={{backgroundImage: 'url(/assets/proker/background2.svg)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+          <div className="container mx-auto max-w-4xl">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-2xl md:text-4xl font-bold text-[#081936] mb-4">Pasca-Liga KOMATIK</h2>
+              <div className="w-16 md:w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+              <p
+                className="text-gray-600 text-sm md:text-base"
+                style={{
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  lineHeight: '20px',
+                  letterSpacing: '0%',
+                  textAlign: 'left'
+                }}
+              >
                 Tahap ini merupakan seleksi akhir sekaligus proses penyempurnaan karya sebelum dikirimkan sebagai perwakilan resmi UGM di ajang GEMASTIK. Rangkaian Kegiatan Pasca-Liga KOMATIK, yaitu :
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
               {pascaLigaSteps.map((step, index) => (
-                <div key={index} className="rounded-lg p-6 flex gap-6 items-center" style={{background: '#F1F4FB', boxShadow: '0px 0px 8px 0px #00000040'}}>
-                  <div className="text-black text-lg font-bold rounded-md w-12 h-12 flex-shrink-0 flex items-center justify-center" style={{background: '#CDD7FE80'}}>
+                <div key={index} className="rounded-lg p-4 md:p-6 flex gap-4 md:gap-6 items-center" style={{background: '#F1F4FB', boxShadow: '0px 0px 8px 0px #00000040'}}>
+                  <div className="text-black text-base md:text-lg font-bold rounded-md w-10 h-10 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center" style={{background: '#CDD7FE80'}}>
                     {index + 1}
                   </div>
                   <div>
-                    <h3 className="text-[#081936] font-bold text-xl mb-2">{step.title}</h3>
-                    <p className="text-gray-600 text-sm">{step.description}</p>
+                    <h3 className="text-[#081936] font-bold text-lg md:text-xl mb-1 md:mb-2">{step.title}</h3>
+                    <p className="text-gray-600 text-xs md:text-sm">{step.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="text-gray-600 text-center mt-12 max-w-3xl mx-auto">
+            <p
+              className="text-gray-600 mt-8 md:mt-12 text-sm md:text-base"
+              style={{
+                fontFamily: 'Plus Jakarta Sans',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                lineHeight: '20px',
+                letterSpacing: '0%',
+                textAlign: 'left'
+              }}
+            >
               Tahap ini menjadi penentuan akhir sebelum peserta resmi didaftarkan sebagai kontingen UGM ke GEMASTIK nasional.
             </p>
           </div>

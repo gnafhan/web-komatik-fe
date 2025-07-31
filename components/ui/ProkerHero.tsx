@@ -26,7 +26,7 @@ export function ProkerHero({
       className={`relative pt-24 pb-16 px-4 overflow-hidden ${className}`}
       style={sectionStyle}
     >
-      <div className="container max-w-6xl relative z-10 pl-53">
+      <div className="container max-w-6xl relative z-10 pl-15">
         <div className="max-w-2xl">
           <h1 className="font-sans text-3xl font-bold text-white mb-6 leading-9">
             {title}

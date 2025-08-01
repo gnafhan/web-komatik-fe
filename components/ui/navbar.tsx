@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "#" },
@@ -14,7 +15,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Pengurus", href: "#" },
-  { label: "Tentang Kami", href: "#" },
+  { label: "Tentang Kami", href: "/tentangkami" },
   { label: "Kontak Kami", href: "#" },
 ];
 

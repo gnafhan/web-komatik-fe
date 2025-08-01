@@ -12,7 +12,7 @@ export const HeroSection = () => {
       const container = backgroundRef.current;
       const section = container.closest('div');
       const containerWidth = section?.offsetWidth || window.innerWidth;
-      const containerHeight = (section?.offsetHeight || window.innerHeight) + 200;
+      const containerHeight = (section?.offsetHeight || window.innerHeight) + 100; // Reduced from 200 to 100
       
       container.innerHTML = '';
       
@@ -67,7 +67,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-[200px] flex items-center" 
+    <div className="relative w-full min-h-[120px] flex items-center" 
          style={{
            background: 'linear-gradient(101.19deg, #041128 5.44%, #081936 65.42%, #213D6F 102.82%)'
          }}>
@@ -78,12 +78,12 @@ export const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-16 md:py-20">
-        <div className="max-w-4xl ml-[8%]"> {/* Added margin-left */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+      <div className="relative container mx-auto px-4 py-12 md:py-16"> 
+        <div className="max-w-4xl ml-[8%]">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3"> 
             Tentang Kami
           </h1>
-          <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-300 leading-relaxed"> 
             KOMATIK UGM hadir untuk membina, memfasilitasi, dan <br />
             mendorong mahasiswa UGM berprestasi di bidang TIK.
           </p>

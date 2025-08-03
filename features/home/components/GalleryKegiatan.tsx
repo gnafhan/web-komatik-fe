@@ -6,19 +6,19 @@ import { useEffect, useRef } from "react";
 
 const galleryImages = [
   { className: "col-span-2 row-span-2", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "hidden md:block col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "hidden md:block col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "hidden md:block col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
   { className: "col-span-2 row-span-2", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
-  { className: "col-span-1 row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "hidden md:block col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
+  { className: "hidden md:block col-span-2 row-span-2 md:col-span-1 md:row-span-1", aspectRatio: "aspect-[3/2]" },
 ];
 
 export default function GalleryKegiatan() {

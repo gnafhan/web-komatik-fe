@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const NAV_ITEMS = [
-  { label: "Beranda", href: "#" },
+  { label: "Beranda", href: "/" },
   {
     label: "Program Kerja",
     href: "#",
@@ -14,6 +14,7 @@ const NAV_ITEMS = [
       { label: "Trail", href: "#" },
     ],
   },
+  { label: "Prestasi", href: "/prestasi"},
   { label: "Pengurus", href: "#" },
   { label: "Tentang Kami", href: "/tentangkami" },
   { label: "Kontak Kami", href: "#" },
@@ -41,7 +42,7 @@ export function BlurHeader() {
         </a>
         {/* Centered navigation - hidden on mobile */}
         <nav className="z-[10] flex-1 hidden md:flex items-center justify-center gap-8">
-          {NAV_ITEMS.slice(0, 4).map((item) =>
+          {NAV_ITEMS.slice(0, 5).map((item) =>
             item.children ? (
               <div
                 key={item.label}
@@ -92,7 +93,7 @@ export function BlurHeader() {
         </nav>
         {/* Right-aligned Kontak Kami - hidden on mobile */}
         <div className="z-[10] hidden md:flex items-center gap-4 min-w-[120px] justify-end">
-          <a href={NAV_ITEMS[4].href} className="hover:text-primary transition-colors font-semibold font-sans">{NAV_ITEMS[4].label}</a>
+          <a href={NAV_ITEMS[5].href} className="hover:text-primary transition-colors font-semibold font-sans">{NAV_ITEMS[5].label}</a>
         </div>
         {/* Hamburger button - mobile only */}
         <button

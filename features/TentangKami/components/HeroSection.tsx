@@ -1,84 +1,21 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 export const HeroSection = () => {
-  const backgroundRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const createBackgroundPattern = () => {
-      if (!backgroundRef.current) return;
-
-      const container = backgroundRef.current;
-      const section = container.closest('div');
-      const containerWidth = section?.offsetWidth || window.innerWidth;
-      const containerHeight = (section?.offsetHeight || window.innerHeight) + 100; // Reduced from 200 to 100
-      
-      container.innerHTML = '';
-      
-      // Adjust pattern dimensions to prevent overlap
-      const patternWidth = 54;
-      const patternHeight = 68;
-      const horizontalSpacing = patternWidth * 1; // No horizontal overlap
-      const verticalSpacing = patternHeight * 1.1; // Slight vertical overlap for seamless look
-      
-      const cols = Math.ceil(containerWidth / horizontalSpacing) + 1;
-      const rows = Math.ceil(containerHeight / verticalSpacing) + 4;
-      
-      for (let row = -1; row < rows; row++) {
-        for (let col = -1; col < cols; col++) {
-          // Adjust offset calculation to prevent overlap
-          const offsetCol = row % 2 === 0 ? col : col + 0.5; // Changed from col - 0.5 to col + 0.5
-          const isLeftPattern = (Math.floor(row) + Math.floor(col)) % 2 === 0;
-          const bgImage = isLeftPattern 
-            ? '/assets/Gallery/bg-1-left.png' 
-            : '/assets/Gallery/bg-2-right.png';
-          
-          const bgElement = document.createElement('div');
-          bgElement.className = 'absolute';
-          bgElement.style.left = `${offsetCol * horizontalSpacing}px`; // Use horizontalSpacing
-          bgElement.style.top = `${row * verticalSpacing}px`; // Use verticalSpacing
-          bgElement.style.width = `${patternWidth}px`;
-          bgElement.style.height = `${patternHeight}px`;
-          bgElement.style.backgroundImage = `url(${bgImage})`;
-          bgElement.style.backgroundSize = 'contain';
-          bgElement.style.backgroundPosition = 'center';
-          bgElement.style.backgroundRepeat = 'no-repeat';
-          bgElement.style.opacity = '10%';
-          
-          container.appendChild(bgElement);
-        }
-      }
-    };
-
-    createBackgroundPattern();
-
-    const handleResize = () => {
-      createBackgroundPattern();
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', createBackgroundPattern);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', createBackgroundPattern);
-    };
-  }, []);
-
   return (
-    <div className="relative w-full min-h-[120px] flex items-center" 
-         style={{
-           background: 'linear-gradient(101.19deg, #041128 5.44%, #081936 65.42%, #213D6F 102.82%)'
-         }}>
-      {/* Background Pattern */}
-      <div 
-        ref={backgroundRef}
-        className="absolute inset-0 w-full h-full overflow-hidden"
-      />
+    <div className="relative w-full min-h-[120px] flex items-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <img 
+          src="/assets/TentangKami/bg-TentangKami.png" 
+          alt="Tentang Kami Background" 
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-12 md:py-16"> 
+      <div className="relative z-10 container mx-auto px-4 py-12 md:py-16"> 
         <div className="max-w-4xl ml-[8%]">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3"> 
             Tentang Kami

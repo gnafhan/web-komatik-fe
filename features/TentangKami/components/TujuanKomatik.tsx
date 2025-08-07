@@ -25,16 +25,18 @@ export const TujuanKomatik = () => {
          }}>
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white relative inline-block">
-            Tujuan KOMATIK
-            <div className="absolute -bottom-2 left-0 w-1/2 h-1 bg-red-600"></div>
-          </h2>
+          {/* Title - Centered */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white relative inline-block">
+              Tujuan KOMATIK
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-red-600"></div>
+            </h2>
+          </div>
 
           {/* Description */}
           <div className="text-base md:text-lg text-gray-300 mb-8">
             <p>
-              <span className="text-white font-semibold">KOMATIK UGM</span> {' '}memiliki beberapa tujuan yang menjadi dasar dari seluruh aktivitas dan program yang dijalankan, antara lain:
+              <span className="text-white font-semibold">KOMATIK UGM</span>{' '}memiliki beberapa tujuan yang menjadi dasar dari seluruh aktivitas dan program yang dijalankan, antara lain:
             </p>
           </div>
 

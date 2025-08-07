@@ -70,7 +70,7 @@ export default function HeroSection() {
             </div>
 
             {/* Title */}
-            <div className="absolute top-[20%] min-[480px]:top-[17.5%] sm:top-[18%] z-20 flex flex-col items-center text-center max-w-2xl w-full px-2 sm:px-4">
+            <div className="absolute top-[20%] min-[480px]:top-[17.5%] sm:top-[16.5%] z-20 flex flex-col items-center text-center max-w-2xl w-full px-2 sm:px-4">
                 <p className="text-lg min-[480px]:text-xl md:text-2xl lg:text-4xl font-bold text-center">
                     <span className="text-black">Empowering IT excellence through</span>
                     <br />

@@ -106,7 +106,7 @@ export default function PendampinganGemastikPage() {
       </section>
 
       <section className="py-8 md:py-12 lg:py-16 px-4" style={{background: 'linear-gradient(113.67deg, #0C2A5E -10.22%, #081936 62.39%, #030F22 107.98%)'}}>
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-[55vw]">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
               Cabang Lomba

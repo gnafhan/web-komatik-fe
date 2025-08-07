@@ -1,3 +1,5 @@
+import { UiImage } from "./image";
+
 interface ProkerHeroProps {
   title: string;
   description: string;
@@ -22,19 +24,21 @@ export function ProkerHero({
   } : {};
 
   return (
-    <section
-      className={`relative pt-16 pb-12 px-4 md:pt-24 md:pb-16 overflow-hidden ${className}`}
-      style={sectionStyle}
-    >
-      <div className="container max-w-6xl relative z-10 md:pl-15 mx-auto">
-        <div className="max-w-2xl">
-          <h1 className="font-sans text-2xl md:text-3xl font-bold text-white mb-6 leading-9 break-words">
-            {title}
-          </h1>
-          <p className="font-sans text-lg md:text-xl font-medium text-gray-200 leading-8 break-words">
-            {description}
-          </p>
-        </div>
+    <section className="flex items-center px-4 md:px-18 py-16 max-sm:py-8 relative w-full">
+      <div className="absolute inset-0 w-full h-full z-10">
+        <UiImage
+          src="/assets/program-kerja/program-kerja-bg.png"
+          alt="Prestasi Hero Background"
+          fill
+          className="object-cover w-full h-full"
+          priority
+        />
+      </div>
+      <div className="text-white flex flex-col gap-2.5 z-20">
+        <h4 className=" font-bold text-2xl">{title}</h4>
+        <p className="w-full md:w-lg font-medium text-base max-sm:text-xs max-sm:font-normal">
+          {description}
+        </p>
       </div>
     </section>
   );

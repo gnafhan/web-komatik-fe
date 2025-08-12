@@ -1,23 +1,10 @@
-export const TujuanKomatik = () => {
-  const objectives = [
-    {
-      id: 1,
-      text: "Menjadi wadah berkumpul mahasiswa yang minat terhadap Teknologi Informasi dan Komunikasi"
-    },
-    {
-      id: 2,
-      text: "Mengembangkan kreativitas dan kemampuan mahasiswa dalam bidang Teknologi Informasi dan Komunikasi"
-    },
-    {
-      id: 3,
-      text: "Memotivasi mahasiswa untuk berperan dalam mengembangkan dunia Teknologi Informasi dan Komunikasi"
-    },
-    {
-      id: 4,
-      text: "Memberikan kontribusi terhadap UGM dalam bentuk riset dan pencapaian."
-    }
-  ];
+interface TujuanKomatikProps {
+  title: string;
+  description: string;
+  objectives: string[];
+}
 
+export const TujuanKomatik = ({ title, description, objectives }: TujuanKomatikProps) => {
   return (
     <div className="w-full py-16 md:py-24"
          style={{
@@ -28,7 +15,7 @@ export const TujuanKomatik = () => {
           {/* Title - Centered */}
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white relative inline-block">
-              Tujuan KOMATIK
+              {title}
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-red-600"></div>
             </h2>
           </div>
@@ -36,25 +23,25 @@ export const TujuanKomatik = () => {
           {/* Description */}
           <div className="text-base md:text-lg text-gray-300 mb-8">
             <p>
-              <span className="text-white font-semibold">KOMATIK UGM</span>{' '}memiliki beberapa tujuan yang menjadi dasar dari seluruh aktivitas dan program yang dijalankan, antara lain:
+              {description}
             </p>
           </div>
 
           {/* Objectives List */}
           <div className="space-y-4">
-            {objectives.map((objective) => (
-              <div 
-                key={objective.id}
-                className="flex items-start gap-4 p-4 rounded-lg bg-white/10 backdrop-blur-sm 
+            {objectives.map((objective, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 p-4 rounded-lg bg-white/10 backdrop-blur-sm
                          transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] cursor-pointer"
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 flex items-center 
-                              justify-center text-white font-semibold transition-transform 
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 flex items-center
+                              justify-center text-white font-semibold transition-transform
                               duration-300 group-hover:scale-110">
-                  {objective.id}
+                  {index + 1}
                 </div>
                 <p className="text-white text-base md:text-lg">
-                  {objective.text}
+                  {objective}
                 </p>
               </div>
             ))}

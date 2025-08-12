@@ -64,10 +64,10 @@ export default function PrestasiKami() {
   return (
     <div className="w-full py-16 px-4 bg-white relative">
       
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-7xl mx-auto overflow-x-hidden">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-          <div className="mb-3 lg:mb-0">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
+          <div className="mb-8 lg:mb-0">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Prestasi Kami
             </h2>

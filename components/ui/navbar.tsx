@@ -3,17 +3,18 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
-  { label: "Beranda", href: "#" },
+  { label: "Beranda", href: "/" },
   {
     label: "Program Kerja",
     href: "#",
     children: [
-      { label: "Gemastik", href: "#" },
-      { label: "Liga Komatik", href: "#" },
-      { label: "Trail", href: "#" },
+      { label: "Learning Session", href: "/proker/learning-session" },
+      { label: "Liga Komatik", href: "/proker/liga-komatik" },
+      { label: "Pendampingan Gemastik", href: "/proker/pendampingan-gemastik" },
     ],
   },
-  { label: "Pengurus", href: "#" },
+  { label: "Prestasi", href: "/prestasi"},
+  { label: "Pengurus", href: "/pengurus" },
   { label: "Tentang Kami", href: "#" },
   { label: "Kontak Kami", href: "#" },
 ];
@@ -40,7 +41,7 @@ export function BlurHeader() {
         </a>
         {/* Centered navigation - hidden on mobile */}
         <nav className="z-[10] flex-1 hidden md:flex items-center justify-center gap-8">
-          {NAV_ITEMS.slice(0, 4).map((item) =>
+          {NAV_ITEMS.slice(0, 5).map((item) =>
             item.children ? (
               <div
                 key={item.label}
@@ -91,7 +92,7 @@ export function BlurHeader() {
         </nav>
         {/* Right-aligned Kontak Kami - hidden on mobile */}
         <div className="z-[10] hidden md:flex items-center gap-4 min-w-[120px] justify-end">
-          <a href={NAV_ITEMS[4].href} className="hover:text-primary transition-colors font-semibold font-sans">{NAV_ITEMS[4].label}</a>
+          <a href={NAV_ITEMS[5].href} className="hover:text-primary transition-colors font-semibold font-sans">{NAV_ITEMS[5].label}</a>
         </div>
         {/* Hamburger button - mobile only */}
         <button

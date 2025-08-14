@@ -64,7 +64,7 @@ export default function DivisiKami() {
             className="text-white text-2xl font-bold mb-7">Divisi Kami</motion.h1>
             <motion.p 
             whileInView={{opacity: 1, translateY: 0}}
-            initial={{opacity: 0, translateY: 100}}
+            initial={{opacity: 0, translateY: 50}}
             transition={{
                 duration: 1.2,
                 delay:0.5  

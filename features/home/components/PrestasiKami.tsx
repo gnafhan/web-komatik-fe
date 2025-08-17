@@ -146,24 +146,26 @@ export default function PrestasiKami() {
                 <button
                   onClick={handlePrevious}
                   disabled={!canScrollPrev}
+                  aria-label="Sebelumnya"
                   className={`p-3 rounded-full border-2 transition-all duration-200 ${
                     canScrollPrev
                       ? 'border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
                       : 'border-gray-300 text-gray-300 cursor-not-allowed'
                   }`}
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-5 h-5" aria-hidden="true" focusable="false" />
                 </button>
                 <button
                   onClick={handleNext}
                   disabled={!canScrollNext}
+                  aria-label="Berikutnya"
                   className={`p-3 rounded-full border-2 transition-all duration-200 ${
                     canScrollNext
                       ? 'border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
                       : 'border-gray-300 text-gray-300 cursor-not-allowed'
                   }`}
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-5 h-5" aria-hidden="true" focusable="false" />
                 </button>
               </div>
             </>

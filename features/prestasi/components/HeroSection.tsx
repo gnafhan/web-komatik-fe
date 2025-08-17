@@ -13,8 +13,20 @@ export default function HeroSection(){
         />
       </div>
       <div className="text-white flex flex-col gap-2.5">
-        <h4 className=" font-bold text-2xl">Prestasi Kami</h4>
-        <p className="w-full md:w-lg font-medium text-base max-sm:text-xs max-sm:font-normal">
+        <h4 
+          className="font-bold text-2xl"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-out-cubic"
+        >
+          Prestasi Kami
+        </h4>
+        <p 
+          className="w-full md:w-lg font-medium text-base max-sm:text-xs max-sm:font-normal"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           Kegiatan tahunan yang rutin diselenggarakan KOMATIK guna memfasilitasi
           mahasiswa dalam mempersiapkan lomba
         </p>

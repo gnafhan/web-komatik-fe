@@ -22,10 +22,22 @@ export const HeroSection = ({ title, description }: HeroSectionProps) => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-16">
         <div className="max-w-4xl ml-[8%]">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
+          <h1 
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-out-cubic"
+          > 
             {title}
           </h1>
-          <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+          <p 
+            className="text-sm md:text-base text-gray-300 leading-relaxed"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-out-cubic"
+          > 
             {description}
           </p>
         </div>

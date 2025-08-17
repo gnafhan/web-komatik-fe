@@ -122,12 +122,13 @@ export default function PengurusSection({ data }: PengurusSectionProps) {
                 )}
                 <div className="w-full max-w-5xl mx-auto">
                   <div className="flex flex-wrap justify-center gap-8 mb-20">
-                    {group.members.map((person) => (
+                    {group.members.map((person, personIndex) => (
                       <div key={person.id} className="flex-shrink-0">
                         <PengurusCard
                           image={person.image}
                           position={person.position}
                           name={person.name}
+                          index={personIndex}
                         />
                       </div>
                     ))}

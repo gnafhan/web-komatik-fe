@@ -47,7 +47,6 @@ async function getDataFromFirebase(): Promise<TentangKamiData> {
     }
     
     const data = docSnap.data() as TentangKamiData;
-    console.log('fetched: ', data);
     
     // Handle objectives array - extract value from objects if needed
     if (data && data.objectives && Array.isArray(data.objectives)) {
@@ -115,9 +114,8 @@ export async function getTentangKamiData(): Promise<TentangKamiData> {
         console.warn('API request failed, falling back to default data');
         return getDefaultData();
       }
-
+      
       const data = await response.json() as TentangKamiData;
-      console.log('fetched: ', data);
       return data;
     }
   } catch (error) {

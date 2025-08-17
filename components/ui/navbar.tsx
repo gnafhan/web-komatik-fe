@@ -41,7 +41,11 @@ export function BlurHeader() {
         <Link className="z-[10] flex items-center gap-2" href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
+<<<<<<< HEAD
             src="/logo/logo_and_text.png"
+=======
+            src="/logo/logo_and_text.webp"
+>>>>>>> dev
             alt="Komatik Logo"
             className="h-8 w-auto"
           />
@@ -78,6 +82,15 @@ export function BlurHeader() {
                     <path d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
+                {/* Hidden a for SEO */}
+                <a href={item.href} className="hidden">{item.label}</a>
+                {item.children && (
+                  <>
+                    {item.children.map((child) => (
+                      <a key={child.label} href={child.href} className="hidden">{child.label}</a>
+                    ))}
+                  </>
+                )}
                 <AnimatePresence>
                   {desktopDropdown && (
                     <motion.div

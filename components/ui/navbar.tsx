@@ -15,7 +15,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Prestasi", href: "/prestasi"},
-  { label: "Pengurus", href: "#" },
+  { label: "Pengurus", href: "/pengurus" },
   { label: "Tentang Kami", href: "/tentangkami" },
   { label: "Kontak Kami", href: "#" },
 ];

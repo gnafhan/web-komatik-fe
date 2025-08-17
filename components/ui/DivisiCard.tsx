@@ -25,7 +25,7 @@ const DivisiCard = ({
                 <div className="relative w-2/3 flex items-center justify-center h-fit">
                     <UiImage src={image} alt={name} width={90} height={92} className="object-contain w-full h-auto" />
                 </div>
-                <h3 className="font-bold text-red-500 text-center text-lg md:text-lg lg:text-xl">{name}</h3>
+                <p className="font-bold text-red-500 text-center text-lg md:text-lg lg:text-xl">{name}</p>
                 <p className="text-black text-center text-sm leading-tight block lg:hidden">
                     {description}
                 </p>

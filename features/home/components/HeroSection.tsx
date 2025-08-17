@@ -141,7 +141,7 @@ export default function HeroSection() {
                 {/* Reduced margin-top for indicators */}
                 <div className="flex justify-center items-center gap-1 min-[480px]:gap-2 mt-8 min-[480px]:mt-10">
                     {images.map((_, index) => (
-                        <button
+                        <div
                             key={index}
                             onClick={() => api?.scrollTo(index)}
                             className={`h-1.5 min-[480px]:h-2 rounded-full transition-all duration-300 ${current === index ? 'w-6 min-[480px]:w-8 bg-red-600' : 'w-1.5 min-[480px]:w-2 bg-[#F9F9F9]'}`}

@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { UiImage } from "@/components/ui/image"
+import { UiImage } from "@/components/ui/image";
+import { TentangKamiData } from "@/types/tentang-kami";
 
-export default function TentangKami() {
+interface TentangKamiProps {
+    data: TentangKamiData;
+}
+
+export default function TentangKami({ data }: TentangKamiProps) {
     return (
         <div>
         <section className="relative w-full min-h-screen bg-gray-100 overflow-hidden">
@@ -25,30 +30,7 @@ export default function TentangKami() {
                 {/* Description */}
                 <div className="max-w-4xl mx-auto text-center mb-8">
                     <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                        <span className="text-gray-800">
-                            Komunitas Mahasiswa Teknologi Informasi dan Komunikasi UGM (
-                        </span>
-                        <span className="text-kmtk-secondary font-semibold">
-                            KOMATIK UGM
-                        </span>
-                        <span className="text-gray-800">
-                            ) adalah komunitas mahasiswa yang bergerak di bidang teknologi informasi dan komunikasi. 
-                            Berdiri sejak tahun 
-                        </span>
-                        <span className="font-bold text-gray-800">
-                        &nbsp;2015
-                        </span>
-                        <span className="text-gray-800">
-                            , komunitas ini telah berkembang menjadi salah satu komunitas teknologi terbesar di UGM. 
-                            Pada tanggal  
-                        </span>
-                        <span className="font-bold text-gray-800">
-                        &nbsp;8 Maret 2018
-                        </span>
-                        <span className="text-gray-800">
-                            , KOMATIK UGM secara resmi menjadi Unit Kegiatan Mahasiswa (UKM) di bawah naungan 
-                            Direktorat Kemahasiswaan UGM.
-                        </span>
+                        {data.about_description}
                     </p>
                 </div>
                 
@@ -56,7 +38,7 @@ export default function TentangKami() {
                 <div className="grid grid-cols-3 md:grid-cols-3 gap-0 mb-6 w-full max-w-lg">
                     <div className="text-center">
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            2015
+                            {data.berdiri_sejak}
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Berdiri Sejak
@@ -64,7 +46,7 @@ export default function TentangKami() {
                     </div>
                     <div className="text-center">
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            2500+
+                            {data.total_member}
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Total Member
@@ -72,7 +54,7 @@ export default function TentangKami() {
                     </div>
                     <div className="text-center">
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            8
+                            {data.jumlah_divisi}
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Divisi
@@ -94,7 +76,7 @@ export default function TentangKami() {
         </section>
 
             {/* Robot head graphic - Background */}
-            <div className="absolute bottom-20 -left-8 w-32 h-32 sm:w-42 sm:h-42  z-0  relative">
+            <div className="absolute bottom-20 -left-8 w-32 h-32 sm:w-42 sm:h-42 z-0">
                 <UiImage src="/assets/home/robot_tentangkami4x.png" alt="Robot Tentang Kami" fill className="object-contain object-bottom w-full h-full " />
             </div>
             

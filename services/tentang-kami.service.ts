@@ -15,7 +15,10 @@ function getDefaultData(): TentangKamiData {
       'Memberikan kontribusi terhadap UGM dalam bentuk riset dan pencapaian'
     ],
     video_title: 'Video Profile',
-    video_url: 'https://www.youtube.com/embed/lelkP0nqxzc'
+    video_url: 'https://www.youtube.com/embed/lelkP0nqxzc',
+    berdiri_sejak: '2015',
+    total_member: '2500+',
+    jumlah_divisi: '8'
   };
 }
 

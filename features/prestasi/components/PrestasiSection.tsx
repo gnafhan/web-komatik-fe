@@ -5,7 +5,7 @@ import { prestasiData, yearTabs } from "@/data/prestasi-data";
 
 export default function PrestasiSection() {
 
-  const [selectedYear, setSelectedYear] = useState(2025);
+  const [selectedYear, setSelectedYear] = useState(2024);
   
   // Filter Tahun
   const filteredPrestasi = prestasiData.filter(prestasi => prestasi.year === selectedYear);
@@ -65,7 +65,7 @@ export default function PrestasiSection() {
                           className="w-full" 
                           key={prestasi.id}
                           data-aos="fade-up"
-                          data-aos-delay={400 + (index * 100)}
+                          data-aos-delay={200 + (index * 100)}
                         >
                             <PrestasiCard
                               title={prestasi.title}

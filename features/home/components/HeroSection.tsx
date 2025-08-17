@@ -10,6 +10,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
+import * as motion from "motion/react-client"
 
 interface ImageType {
     id: string;
@@ -62,22 +63,38 @@ export default function HeroSection() {
     return (
         <div className="w-full font-sans relative h-[85vh] min-[480px]:h-[90vh] lg:h-[calc(100vh+4rem)] flex flex-col items-center px-2 sm:px-4 overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute -top-[5%] -left-[40%] w-[80%] h-auto aspect-[325/485] min-[480px]:-top-[2%] min-[480px]:-left-[30%] min-[480px]:w-[70%] sm:-top-[15%] sm:-left-[15%] sm:w-[50%] sm:aspect-[572/485]">
+            <motion.div 
+            initial={{opacity: 0, translateX: -300}}
+            animate={{opacity: 1, translateX: 0}}
+            transition={{duration: 2, delay: 1.2}}
+            className="absolute -top-[5%] -left-[40%] w-[80%] h-auto aspect-[325/485] min-[480px]:-top-[2%] min-[480px]:-left-[30%] min-[480px]:w-[70%] sm:-top-[15%] sm:-left-[15%] sm:w-[50%] sm:aspect-[572/485]">
                 <UiImage src="/assets/home/bg_side.png" alt="Hero Section" fill className="object-cover object-right w-full h-full" />
-            </div>
-            <div className="absolute -top-[5%] -right-[40%] w-[80%] h-auto aspect-[325/485] scale-x-[-1] min-[480px]:-top-[2%] min-[480px]:-right-[30%] min-[480px]:w-[70%] sm:-top-[15%] sm:-right-[15%] sm:w-[50%] sm:aspect-[572/485]">
+            </motion.div>
+            <motion.div 
+            initial={{ translateX: -300, opacity: 0}}
+            animate={{ translateX: 0, opacity: 1}}
+            transition={{duration: 2, delay: 1.2}}
+            className="absolute -top-[5%] -right-[40%] w-[80%] h-auto aspect-[325/485] scale-x-[-1] min-[480px]:-top-[2%] min-[480px]:-right-[30%] min-[480px]:w-[70%] sm:-top-[15%] sm:-right-[15%] sm:w-[50%] sm:aspect-[572/485]">
                 <UiImage src="/assets/home/bg_side.png" alt="Hero Section" fill className="object-cover object-right w-full h-full -scale-x-100" />
-            </div>
+            </motion.div>
 
             {/* Title */}
             <div className="absolute top-[20%] min-[480px]:top-[17.5%] sm:top-[16.5%] z-20 flex flex-col items-center text-center max-w-2xl w-full px-2 sm:px-4">
-                <p className="text-lg min-[480px]:text-xl md:text-2xl lg:text-4xl font-bold text-center">
+                <motion.p 
+                whileInView={{opacity: 1, translateY: 0}}
+                initial={{opacity: 0, translateY: 100}}
+                transition={{
+                    duration: 1.2,
+                    delay:0.5  
+                }}
+                viewport={{once: true}}
+                className="text-lg min-[480px]:text-xl md:text-2xl lg:text-4xl font-bold text-center">
                     <span className="text-black">Empowering IT excellence through</span>
                     <br />
                     <span className="text-[#d80000]">innovation</span>
                     <span className="text-black"> and </span>
                     <span className="text-[#d80000]">competition</span>
-                </p>
+                </motion.p>
             </div>
 
             {/* Gradient Blur */}

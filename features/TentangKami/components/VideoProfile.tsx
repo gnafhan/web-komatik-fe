@@ -1,4 +1,9 @@
-export const VideoProfile = () => {
+interface VideoProfileProps {
+  title: string;
+  videoUrl: string;
+}
+
+export const VideoProfile = ({ title, videoUrl }: VideoProfileProps) => {
   return (
     <>
       <div className="w-full py-16 md:py-24">
@@ -11,7 +16,7 @@ export const VideoProfile = () => {
               data-aos-delay="100"
             >
               <h2 className="text-3xl md:text-4xl font-bold relative inline-block">
-                Video Profile
+                {title}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-red-600"></div>
               </h2>
             </div>
@@ -23,7 +28,7 @@ export const VideoProfile = () => {
               data-aos-delay="300"
             >
               <iframe
-                src="https://www.youtube.com/embed/lelkP0nqxzc"
+                src={videoUrl}
                 title="KOMATIK UGM Video Profile"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

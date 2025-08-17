@@ -29,7 +29,6 @@ export default async function TentangKamiPage() {
         title={data.video_title}
         videoUrl={data.video_url}
       />
-      <Footer />
     </div>
   );
 }

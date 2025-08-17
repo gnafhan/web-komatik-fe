@@ -1,4 +1,7 @@
 import { ProkerHero } from "@/components/ui/ProkerHero";
+import { LigaKomatikMetadata } from "@/metadata/LigaKomatikMetadata";
+
+export const metadata = LigaKomatikMetadata;
 
 export default function LigaKomatikPage() {
   const ligaKomatikSteps = [

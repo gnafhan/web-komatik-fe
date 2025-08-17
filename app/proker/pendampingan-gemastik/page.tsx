@@ -1,4 +1,7 @@
 import { ProkerHero } from "@/components/ui/ProkerHero";
+import { PendampinganKomatikMetadata } from "@/metadata/PendampinganKomatikMetadata";
+
+export const metadata = PendampinganKomatikMetadata;
 
 export default function PendampinganGemastikPage() {
   const competitionBranches = [

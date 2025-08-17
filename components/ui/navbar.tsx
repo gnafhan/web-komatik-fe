@@ -62,6 +62,15 @@ export function BlurHeader() {
                   {item.label}
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" /></svg>
                 </button>
+                {/* Hidden a for SEO */}
+                <a href={item.href} className="hidden">{item.label}</a>
+                {item.children && (
+                  <>
+                    {item.children.map((child) => (
+                      <a key={child.label} href={child.href} className="hidden">{child.label}</a>
+                    ))}
+                  </>
+                )}
                 <AnimatePresence>
                   {desktopDropdown && (
                     <motion.div

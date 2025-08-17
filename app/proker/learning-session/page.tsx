@@ -1,5 +1,8 @@
 import { ProkerHero } from "@/components/ui/ProkerHero";
 import Image from "next/image";
+import { LearningSessionMetadata } from "@/metadata/LearningSessionMetadata";
+
+export const metadata = LearningSessionMetadata;
 
 export default function LearningSessionPage() {
   const divisions = [

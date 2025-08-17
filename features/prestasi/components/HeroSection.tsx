@@ -15,8 +15,10 @@ export default function HeroSection(){
       <div className="text-white flex flex-col gap-2.5">
         <h4 
           className="font-bold text-2xl"
-          data-aos="fade-up"
-          data-aos-delay="200"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-out-cubic"
         >
           Prestasi Kami
         </h4>

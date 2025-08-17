@@ -38,7 +38,7 @@ export function BlurHeader() {
       <div className="mx-auto flex w-full items-center justify-between">
         {/* Logo */}
         <a className="z-[10] flex items-center gap-2" href="/">
-          <img src="/logo/logo_and_text.png" alt="Komatik Logo" className="h-8 w-auto" />
+          <img src="/logo/logo_and_text.webp" alt="Komatik Logo" className="h-8 w-auto" />
         </a>
         {/* Centered navigation - hidden on mobile */}
         <nav className="z-[10] flex-1 hidden md:flex items-center justify-center gap-8">

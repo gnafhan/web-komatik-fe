@@ -6,7 +6,7 @@ import TentangKami from "@/features/home/components/TentangKami";
 import ProgramKerja from "@/features/home/components/ProgramKerja";
 import DivisiKami from "@/features/home/components/DivisiKami";
 import GalleryKegiatan from "@/features/home/components/GalleryKegiatan";
-import { HomeMetadata } from "@/features/home/metadata/HomeMetadata";
+import { HomeMetadata } from "@/metadata/HomeMetadata";
 
 export const metadata = HomeMetadata;
 

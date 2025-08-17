@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from "react";
 
 const divisions = [
@@ -78,13 +79,12 @@ const FormPage = () => {
               </svg>
             </div>
           </div>
-          <div className="pt-4">
-            <button
-              type="submit"
-              className="w-full p-3 font-semibold text-white bg-[#D80000] rounded-xl hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 transform hover:scale-105"
-            >
-              Mulai Quiz &rarr;
-            </button>
+          <div className="pt-4 flex justify-center">
+              <Link href="/quiz/question">
+                <button className="rounded-lg bg-red-600 px-8 py-3 text-lg font-semibold text-white transition hover:bg-red-700">
+                  Mainkan Quiz &rarr;
+                </button>
+              </Link>
           </div>
         </form>
       </div>

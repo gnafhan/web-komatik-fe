@@ -1,13 +1,6 @@
 "use client";
 import React, { useState } from 'react';
 
-/**
- * Improvements:
- * - Added ARIA attributes for accessibility.
- * - Disabled "Lanjut" button until an option is selected.
- * - Extracted inline styles into CSS classes.
- * - Added validation to ensure an option is selected before proceeding.
- */
 
 const QuestionsPage = () => {
     const question = "Apa yang dimaksud dengan machine learning dalam bidang kecerdasan buatan?";
@@ -53,6 +46,7 @@ const QuestionsPage = () => {
                             onClick={() => setSelectedOption(index)}
                             className={`
                                 text-left p-5 rounded-lg border transition-all duration-200 ease-in-out
+                                bg-[rgba(255,255,255,0.30)] border-radius-[8px]
                                 ${selectedOption === index
                                     ? 'bg-white text-[#0F172A] font-semibold border-white ring-2 ring-white' // Gaya saat dipilih
                                     : 'bg-[#1E293B]/60 border-[#334155] hover:bg-[#334155]' // Gaya default
@@ -72,7 +66,7 @@ const QuestionsPage = () => {
                         disabled={selectedOption === null}
                         onClick={() => {
                             if (selectedOption !== null) {
-                                alert(`You selected option ${selectedOption + 1}: ${options[selectedOption]}`);
+                                window.location.href = '/quiz/result';
                             }
                         }}
                     >

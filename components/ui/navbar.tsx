@@ -41,11 +41,7 @@ export function BlurHeader() {
         <Link className="z-[10] flex items-center gap-2" href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-<<<<<<< HEAD
-            src="/logo/logo_and_text.png"
-=======
             src="/logo/logo_and_text.webp"
->>>>>>> dev
             alt="Komatik Logo"
             className="h-8 w-auto"
           />

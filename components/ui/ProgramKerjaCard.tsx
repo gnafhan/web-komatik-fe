@@ -1,5 +1,6 @@
 import { UiImage } from "@/components/ui/image";
 import { Button } from "@/components/ui/button";
+import * as motion from "motion/react-client"
 
 interface ProgramKerjaCardProps {
   title: string;
@@ -10,7 +11,15 @@ interface ProgramKerjaCardProps {
 
 export default function ProgramKerjaCard({ title, description, image, category }: ProgramKerjaCardProps) {
   return (
-    <div className="relative group overflow-hidden rounded-lg h-120 w-full px-5">
+    <motion.div 
+    whileInView={{opacity: 1, translateY: 0}}
+    initial={{opacity: 0, translateY: 100}}
+    transition={{
+        duration: 1.2,
+        delay:0.5  
+    }}
+    viewport={{once: true}}
+    className="relative group overflow-hidden rounded-lg h-120 w-full px-5">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <UiImage
@@ -41,6 +50,6 @@ export default function ProgramKerjaCard({ title, description, image, category }
         Selengkapnya
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -15,7 +15,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: "Prestasi", href: "/prestasi"},
-  { label: "Pengurus", href: "#" },
+  { label: "Pengurus", href: "/pengurus" },
   { label: "Tentang Kami", href: "/tentangkami" },
   { label: "Kontak Kami", href: "#" },
 ];
@@ -38,7 +38,7 @@ export function BlurHeader() {
       <div className="mx-auto flex w-full items-center justify-between">
         {/* Logo */}
         <a className="z-[10] flex items-center gap-2" href="/">
-          <img src="/logo/logo_and_text.png" alt="Komatik Logo" className="h-8 w-auto" />
+          <img src="/logo/logo_and_text.webp" alt="Komatik Logo" className="h-8 w-auto" />
         </a>
         {/* Centered navigation - hidden on mobile */}
         <nav className="z-[10] flex-1 hidden md:flex items-center justify-center gap-8">
@@ -62,6 +62,15 @@ export function BlurHeader() {
                   {item.label}
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" /></svg>
                 </button>
+                {/* Hidden a for SEO */}
+                <a href={item.href} className="hidden">{item.label}</a>
+                {item.children && (
+                  <>
+                    {item.children.map((child) => (
+                      <a key={child.label} href={child.href} className="hidden">{child.label}</a>
+                    ))}
+                  </>
+                )}
                 <AnimatePresence>
                   {desktopDropdown && (
                     <motion.div

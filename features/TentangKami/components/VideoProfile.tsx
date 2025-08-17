@@ -10,7 +10,11 @@ export const VideoProfile = ({ title, videoUrl }: VideoProfileProps) => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Title - Centered */}
-            <div className="text-center mb-8">
+            <div
+              className="text-center mb-8"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <h2 className="text-3xl md:text-4xl font-bold relative inline-block">
                 {title}
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-red-600"></div>
@@ -18,7 +22,11 @@ export const VideoProfile = ({ title, videoUrl }: VideoProfileProps) => {
             </div>
 
             {/* Video Container */}
-            <div className="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+            <div
+              className="aspect-video w-full rounded-lg overflow-hidden shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <iframe
                 src={videoUrl}
                 title="KOMATIK UGM Video Profile"

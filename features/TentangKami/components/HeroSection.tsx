@@ -17,10 +17,18 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-16"> 
         <div className="max-w-4xl ml-[8%]">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3"> 
+          <h1 
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          > 
             Tentang Kami
           </h1>
-          <p className="text-sm md:text-base text-gray-300 leading-relaxed"> 
+          <p 
+            className="text-sm md:text-base text-gray-300 leading-relaxed"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          > 
             KOMATIK UGM hadir untuk membina, memfasilitasi, dan <br />
             mendorong mahasiswa UGM berprestasi di bidang TIK.
           </p>

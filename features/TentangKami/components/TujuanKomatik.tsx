@@ -26,7 +26,11 @@ export const TujuanKomatik = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Title - Centered */}
-          <div className="text-center mb-8">
+          <div 
+            className="text-center mb-8"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-white relative inline-block">
               Tujuan KOMATIK
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-red-600"></div>
@@ -34,7 +38,11 @@ export const TujuanKomatik = () => {
           </div>
 
           {/* Description */}
-          <div className="text-base md:text-lg text-gray-300 mb-8">
+          <div 
+            className="text-base md:text-lg text-gray-300 mb-8"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <p>
               <span className="text-white font-semibold">KOMATIK UGM</span>{' '}memiliki beberapa tujuan yang menjadi dasar dari seluruh aktivitas dan program yang dijalankan, antara lain:
             </p>
@@ -42,11 +50,13 @@ export const TujuanKomatik = () => {
 
           {/* Objectives List */}
           <div className="space-y-4">
-            {objectives.map((objective) => (
+            {objectives.map((objective, index) => (
               <div 
                 key={objective.id}
                 className="flex items-start gap-4 p-4 rounded-lg bg-white/10 backdrop-blur-sm 
                          transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] cursor-pointer"
+                data-aos="fade-up"
+                data-aos-delay={300 + (index * 100)}
               >
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 flex items-center 
                               justify-center text-white font-semibold transition-transform 

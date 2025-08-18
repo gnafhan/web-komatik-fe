@@ -1,10 +1,14 @@
 "use client";
 import { UiImage } from "@/components/ui/image";
 import ProgramKerjaCard from "@/components/ui/ProgramKerjaCard";
-import { programKerjaData } from "@/data/program-kerja-data";
+import { ProgramKerjaData } from "@/types/program-kerja";
 import * as motion from "motion/react-client"
 
-export default function ProgramKerja() {
+interface ProgramKerjaProps {
+  data: ProgramKerjaData;
+}
+
+export default function ProgramKerja({ data }: ProgramKerjaProps) {
   return (
     <div className="w-full py-16 px-4 bg-[#D60000] relative overflow-hidden">
       <div className="absolute inset-0 w-full h-full">
@@ -43,11 +47,11 @@ export default function ProgramKerja() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {programKerjaData.map((program) => (
+          {data.program_kerja.map((program) => (
             <div key={program.id} className="w-full">
               <ProgramKerjaCard
-                title={program.title}
-                description={program.description}
+                title={program.nama}
+                description={program.deskripsi}
                 image={program.image}
                 category={program.category}
               />

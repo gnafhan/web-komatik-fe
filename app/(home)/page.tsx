@@ -6,11 +6,13 @@ import DivisiKami from "@/features/home/components/DivisiKami";
 import GalleryKegiatan from "@/features/home/components/GalleryKegiatan";
 import { getTentangKamiData } from "@/services/tentang-kami.service";
 import { getDivisionsData } from "@/services/divisions.service";
+import { getProgramKerjaData } from "@/services/program-kerja.service";
 
 export default async function Home() {
-  const [tentangKamiData, divisionsData] = await Promise.all([
+  const [tentangKamiData, divisionsData, programKerjaData] = await Promise.all([
     getTentangKamiData(),
-    getDivisionsData()
+    getDivisionsData(),
+    getProgramKerjaData()
   ]);
 
   return (
@@ -18,7 +20,7 @@ export default async function Home() {
       <HeroSection />
       <TentangKami data={tentangKamiData} />
       <DivisiKami data={divisionsData} />
-      <ProgramKerja />
+      <ProgramKerja data={programKerjaData} />
       <PrestasiKami />
       <GalleryKegiatan />
     </div>

@@ -17,7 +17,6 @@ export default function Home() {
       <div className="relative">
       <TentangKami />
       <DivisiKami />
-
       </div>
       <ProgramKerja />
       <PrestasiKami />

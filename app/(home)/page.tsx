@@ -9,9 +9,11 @@ import { getDivisionsData } from "@/services/divisions.service";
 import { getProgramKerjaData } from "@/services/program-kerja.service";
 import { getPrestasiData } from "@/services/prestasi.service";
 import { getGalleryData } from "@/services/gallery.service";
+import getHeroImageData from "@/services/hero-image.service";
 
 export default async function Home() {
-  const [tentangKamiData, divisionsData, programKerjaData, prestasiData, galleryData] = await Promise.all([
+  const [heroImageData, tentangKamiData, divisionsData, programKerjaData, prestasiData, galleryData] = await Promise.all([
+    getHeroImageData(),
     getTentangKamiData(),
     getDivisionsData(),
     getProgramKerjaData(),
@@ -21,7 +23,7 @@ export default async function Home() {
 
   return (
     <div className="w-full font-sans overflow-x-hidden">
-      <HeroSection />
+      <HeroSection data={heroImageData} />
       <TentangKami data={tentangKamiData} />
       <DivisiKami data={divisionsData} />
       <ProgramKerja data={programKerjaData} />

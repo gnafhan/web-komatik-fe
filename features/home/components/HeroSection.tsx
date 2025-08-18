@@ -8,41 +8,18 @@ import {
     type CarouselApi,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import * as motion from "motion/react-client"
+import { HeroImageData } from "@/types/hero-image";
 
-interface ImageType {
-    id: string;
-    src: string;
+interface HeroSectionProps {
+    data: HeroImageData;
 }
 
-export default function HeroSection() {
+export default function HeroSection({ data }: HeroSectionProps) {
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
-    const [images, setImages] = useState<ImageType[]>([]);
-
-    const fetchImage = useCallback(async () => {
-        try {
-            const response = await fetch('https://dummyjson.com/image/687x317');
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            return { id: self.crypto.randomUUID(), src: url };
-        } catch (error) {
-            console.error("Error fetching image:", error);
-            return null;
-        }
-    }, []);
-
-    useEffect(() => {
-        const initImages = async () => {
-            const initialImages = await Promise.all(
-                Array.from({ length: 5 }).map(() => fetchImage())
-            );
-            setImages(initialImages.filter((img): img is ImageType => img !== null));
-        };
-        initImages();
-    }, [fetchImage]);
 
     useEffect(() => {
         if (!api) {
@@ -54,11 +31,7 @@ export default function HeroSection() {
         api.on("select", () => {
             setCurrent(api.selectedScrollSnap());
         });
-
-        return () => {
-            images.forEach(image => URL.revokeObjectURL(image.src));
-        };
-    }, [api, images]);
+    }, [api]);
 
     return (
         <div className="w-full font-sans relative h-[85vh] min-[480px]:h-[90vh] lg:h-[calc(100vh+4rem)] flex flex-col items-center px-2 sm:px-4 overflow-hidden">
@@ -102,8 +75,8 @@ export default function HeroSection() {
             <div className="hidden sm:block absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
             <div className="hidden sm:block absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-[30%] w-[280px] h-[400px] min-[480px]:w-[350px] min-[480px]:h-[500px] sm:w-[450px] sm:h-[650px] lg:w-[582px] lg:h-[843px] opacity-13 blur-[70px] min-[480px]:blur-[100px] sm:blur-[135px] bg-gradient-to-b from-[#01889C] via-[#13366E] to-[#3C216E] rounded-full" />
 
-            {/* Carousel - Positioned closer to bottom */}
-            <div className="absolute bottom-[8%] min-[480px]:bottom-[10%] sm:top-[40%] w-full z-10">
+            {/* Carousel */}
+            <div className="absolute bottom-[8%] min-[480px]:bottom-[10%] sm:top-[40%] w-full z-10" data-aos="fade">
                 <Carousel
                     setApi={setApi}
                     plugins={[
@@ -117,8 +90,8 @@ export default function HeroSection() {
                     className="w-full overflow-visible"
                 >
                     <CarouselContent className="-ml-3 min-[480px]:-ml-3 md:-ml-2 flex items-center">
-                        {images.map((image, index) => (
-                            <CarouselItem key={image.id} className="pl-2 min-[480px]:pl-2 basis-9/12 min-[480px]:basis-10/12 sm:basis-10/12 md:basis-9/12 lg:basis-7/12 flex justify-center items-center">
+                        {data.heroImages.map((heroImage, index) => (
+                            <CarouselItem key={heroImage.id} className="pl-2 min-[480px]:pl-2 basis-9/12 min-[480px]:basis-10/12 sm:basis-10/12 md:basis-9/12 lg:basis-7/12 flex justify-center items-center">
                                 <div
                                     className={cn(
                                         "relative overflow-hidden rounded-lg w-full aspect-[320/220] sm:aspect-[687/317] transition-all duration-300 ease-in-out",
@@ -128,8 +101,8 @@ export default function HeroSection() {
                                     )}
                                 >
                                     <Image
-                                        src={image.src}
-                                        alt={`Carousel image ${index + 1}`}
+                                        src={heroImage.image}
+                                        alt={`Hero image ${heroImage.position}`}
                                         fill
                                         className="object-cover"
                                     />
@@ -138,9 +111,8 @@ export default function HeroSection() {
                         ))}
                     </CarouselContent>
                 </Carousel>
-                {/* Reduced margin-top for indicators */}
                 <div className="flex justify-center items-center gap-1 min-[480px]:gap-2 mt-8 min-[480px]:mt-10">
-                    {images.map((_, index) => (
+                    {data.heroImages.map((_, index) => (
                         <div
                             key={index}
                             onClick={() => api?.scrollTo(index)}

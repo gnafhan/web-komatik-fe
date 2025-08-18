@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/v0/b/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.komatikugm.com',
+        port: '',
+        pathname: '/_next/image',
+      },
     ],
   },
 };

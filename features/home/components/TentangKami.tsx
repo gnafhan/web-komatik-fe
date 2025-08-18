@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { UiImage } from "@/components/ui/image";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { TentangKamiData } from "@/types/tentang-kami";
 import * as motion from "motion/react-client"
 
-export default function TentangKami() {
+interface TentangKamiProps {
+    data: TentangKamiData;
+}
+
+export default function TentangKami({ data }: TentangKamiProps) {
     return (
         <>
         <section className="relative w-full z-20 min-h-screen bg-gray-100 overflow-visible">
@@ -93,7 +98,7 @@ export default function TentangKami() {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            <NumberTicker value={2015} useGrouping={false} className="inherit" />
+                            <NumberTicker value={parseInt(data?.berdiri_sejak || "2015")} useGrouping={false} className="inherit" />
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Berdiri Sejak
@@ -108,7 +113,7 @@ export default function TentangKami() {
                         style={{ willChange: "opacity" }}
                     >
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            <NumberTicker value={2500} useGrouping={false} className="inherit" />+
+                            <NumberTicker value={parseInt(data?.total_member || "2500")} useGrouping={false} className="inherit" />+
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Total Member
@@ -123,7 +128,7 @@ export default function TentangKami() {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <div className="text-3xl md:text-4xl font-bold text-kmtk-secondary mb-0.5">
-                            <NumberTicker value={8} className="inherit" />
+                            <NumberTicker value={parseInt(data?.jumlah_divisi || "8")} useGrouping={false} className="inherit" />
                         </div>
                         <div className="text-gray-700 text-xs font-medium">
                             Divisi

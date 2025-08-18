@@ -1,55 +1,13 @@
 import DivisiCard from "@/components/ui/DivisiCard";
+import { DivisionsData } from "@/types/divisions";
 import * as motion from "motion/react-client"
 
 
-interface Divisi {
-    name: string;
-    description: string;
-    image: string;
+interface DivisiKamiProps {
+    data: DivisionsData;
 }
-export default function DivisiKami() {
-    const divisi: Divisi[] = [
-        {
-            name: "UX GAMA",
-            description: "Divisi yang berfokus pada pengembangan UI/UX",
-            image: "/assets/divisi/ux-gama.png"
-        },
-        {
-            name: "Software Research Development",
-            description: "Divisi yang berfokus pada pengembangan aplikasi dan pemrograman",
-            image: "/assets/divisi/srd.png"
-        },
-        {
-            name: "ASGama",
-            description: "Divisi yang berfokus pada pengembangan website dan aplikasi web",
-            image: "/assets/divisi/as-gama.png" 
-        },
-        {
-            name: "IoT Gama",
-            description: "Divisi yang berfokus pada pengembangan aplikasi mobile",
-            image: "/assets/divisi/iot-gama.png" 
-        },
-        {
-            name: "GaM-LAB",
-            description: "Divisi yang berfokus pada analisis data dan machine learning",
-            image: "/assets/divisi/gam-lab.png"
-        },
-        {
-            name: "Competitive Programming",
-            description: "Divisi yang berfokus pada keamanan siber dan ethical hacking",
-            image: "/assets/divisi/cp.png" 
-        },
-        {
-            name: "DMAI",
-            description: "Divisi yang berfokus pada jaringan dan infrastruktur IT",
-            image: "/assets/divisi/dmai.png" 
-        },
-        {
-            name: "Animasi",
-            description: "Divisi yang berfokus pada desain grafis dan multimedia",
-            image: "/assets/divisi/animasi.png" 
-        }
-    ]
+
+export default function DivisiKami({ data }: DivisiKamiProps) {
     return(
         <section className="relative flex flex-col items-center justify-center sm:p-14 p-4 z-10">
             <motion.div
@@ -87,34 +45,34 @@ export default function DivisiKami() {
             style={{ willChange: "transform, opacity" }}>Kami memiliki divisi teknis yang menaungi spesifik keilmuan untuk mempersiapkan talenta agar siap dalam berlomba</motion.p>
             
             <div className="flex gap-6 w-full overflow-x-auto scrollbar-hide px-4 lg:hidden">
-                {divisi.map((divisi, index) =>(
+                {data.divisions.map((divisi, index) =>(
                     <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 75, damping: 24, delay: 0.1 + index * 0.06 }}
-                        viewport={{ once: true }}
-                        className="flex-shrink-0"
-                        style={{ willChange: "transform, opacity" }}
+                    key={index}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ type: "spring", stiffness: 75, damping: 24, delay: 0.1 + index * 0.06 }}
+                    viewport={{ once: true }}
+                    className="flex-shrink-0"
+                    style={{ willChange: "transform, opacity" }}
+                >
+                    <motion.div
+                        animate={{ y: [0, -6, 0] }}
+                        transition={{ duration: 5 + (index % 3), repeat: Infinity, ease: "easeInOut", delay: (index % 4) * 0.2 }}
+                        whileHover={{ scale: 1.03 }}
+                        style={{ willChange: "transform" }}
                     >
-                        <motion.div
-                            animate={{ y: [0, -6, 0] }}
-                            transition={{ duration: 5 + (index % 3), repeat: Infinity, ease: "easeInOut", delay: (index % 4) * 0.2 }}
-                            whileHover={{ scale: 1.03 }}
-                            style={{ willChange: "transform" }}
-                        >
-                            <DivisiCard
-                                name={divisi.name}
-                                description={divisi.description}
-                                image={divisi.image}
-                            />
-                        </motion.div>
+                        <DivisiCard
+                            name={divisi.name}
+                            description={divisi.description}
+                            image={divisi.image || '/assets/divisi/default.png' }
+                        />
                     </motion.div>
+                </motion.div>
                 ))}
             </div>
 
             <div className="hidden lg:grid lg:grid-cols-4 gap-6 w-full max-w-6xl px-4">
-                {divisi.map((divisi, index) =>(
+                {data.divisions.map((divisi, index) =>(
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 28 }}
@@ -132,7 +90,7 @@ export default function DivisiKami() {
                             <DivisiCard
                                 name={divisi.name}
                                 description={divisi.description}
-                                image={divisi.image}
+                                image={divisi.image || '/assets/divisi/default.png'}
                             />
                         </motion.div>
                     </motion.div>

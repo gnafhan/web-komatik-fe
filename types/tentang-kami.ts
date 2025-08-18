@@ -8,6 +8,9 @@ export interface TentangKamiData {
   objectives: string[];
   video_title: string;
   video_url: string;
+  berdiri_sejak?: string;
+  total_member?: string;
+  jumlah_divisi?: string;
   created_at?: string | null;
   updated_at?: string | null;
 }

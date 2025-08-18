@@ -2,6 +2,7 @@
 import { UiImage } from "@/components/ui/image";
 import { cn } from "@/lib/utils";
 import * as motion from "motion/react-client"
+import { GalleryData } from "@/types/gallery";
 
 const galleryImages = [
 	{ className: "col-span-2 row-span-2", aspectRatio: "aspect-[3/2]" },
@@ -61,7 +62,11 @@ const galleryImages = [
 	},
 ];
 
-export default function GalleryKegiatan() {
+interface GalleryKegiatanProps {
+	data: GalleryData;
+}
+
+export default function GalleryKegiatan({ data }: GalleryKegiatanProps) {
 	return (
 		<section className="relative w-full min-h-screen py-16 md:py-24 overflow-hidden">
 			{/* Background Image */}
@@ -111,7 +116,9 @@ export default function GalleryKegiatan() {
 
 				{/* Image Gallery Grid */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-3 max-w-6xl mx-auto">
-					{galleryImages.map((image, index) => (
+					{data.gallery.map((image, index) => {
+						const layout = galleryImages[index] || galleryImages[0];
+						return(
 						<motion.div
 							key={index}
 							initial={{ opacity: 0, y: 28 }}
@@ -120,8 +127,8 @@ export default function GalleryKegiatan() {
 							viewport={{ once: true }}
 							className={cn(
 								"relative overflow-hidden rounded-xl shadow-md bg-white border-4 border-white",
-								image.className,
-								image.aspectRatio
+								layout.className,
+								layout.aspectRatio
 							)}
 							style={{ willChange: "transform, opacity" }}
 						>
@@ -132,14 +139,18 @@ export default function GalleryKegiatan() {
 								style={{ willChange: "transform" }}
 							>
 								{/* Placeholder image */}
-								<div className="w-full h-full bg-gradient-to-br flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]">
-									<span className="text-gray-500 text-sm">
-										Image {index + 1}
-									</span>
+								<div className="w-full h-full rounded-lg overflow-hidden">
+									<UiImage
+										src={image.image}
+										alt={`Gallery ${image.position}`}
+										fill
+										className="object-cover w-full h-full"
+									/>
 								</div>
 							</motion.div>
 						</motion.div>
-					))}
+					)
+				})}
 				</div>
 			</div>
 		</section>

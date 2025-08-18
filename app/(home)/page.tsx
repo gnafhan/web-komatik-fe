@@ -8,13 +8,15 @@ import { getTentangKamiData } from "@/services/tentang-kami.service";
 import { getDivisionsData } from "@/services/divisions.service";
 import { getProgramKerjaData } from "@/services/program-kerja.service";
 import { getPrestasiData } from "@/services/prestasi.service";
+import { getGalleryData } from "@/services/gallery.service";
 
 export default async function Home() {
-  const [tentangKamiData, divisionsData, programKerjaData, prestasiData] = await Promise.all([
+  const [tentangKamiData, divisionsData, programKerjaData, prestasiData, galleryData] = await Promise.all([
     getTentangKamiData(),
     getDivisionsData(),
     getProgramKerjaData(),
-    getPrestasiData()
+    getPrestasiData(),
+    getGalleryData()
   ]);
 
   return (
@@ -24,7 +26,7 @@ export default async function Home() {
       <DivisiKami data={divisionsData} />
       <ProgramKerja data={programKerjaData} />
       <PrestasiKami data={prestasiData} />
-      <GalleryKegiatan />
+      <GalleryKegiatan data={galleryData} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { pengurusCategories, pengurusPeriods, pengurusData } from "@/data/pengurus-data";
+import { pengurusCategories, pengurusPeriods } from "@/data/pengurus-data";
 import PengurusCard from "./PengurusCard";
 
 interface PengurusMember {
@@ -15,18 +15,21 @@ interface PengurusGroup {
   members: PengurusMember[];
 }
 
-export default function PengurusSection() {
+interface PengurusSectionProps {
+  data: any;
+}
+
+export default function PengurusSection({ data }: PengurusSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<"ph" | "manajerial" | "teknis">("ph");
   const [selectedPeriod, setSelectedPeriod] = useState<"2024/2025" | "2023/2024">("2024/2025");
 
-  const periodExists = Object.keys(pengurusData).includes(selectedPeriod);
-  
-  const categoryExists = periodExists && 
-    pengurusData[selectedPeriod as keyof typeof pengurusData] && 
-    selectedCategory in pengurusData[selectedPeriod as keyof typeof pengurusData];
-  
-  const currentPengurusData = categoryExists 
-    ? pengurusData[selectedPeriod as keyof typeof pengurusData][selectedCategory] as PengurusGroup[]
+  const periodExists = Object.keys(data).includes(selectedPeriod);
+  const categoryExists = periodExists &&
+    data[selectedPeriod as keyof typeof data] &&
+    selectedCategory in data[selectedPeriod as keyof typeof data];
+
+  const currentPengurusData = categoryExists
+    ? data[selectedPeriod as keyof typeof data][selectedCategory] as PengurusGroup[]
     : [] as PengurusGroup[];
   
   // Dropdown

@@ -4,8 +4,8 @@ import * as motion from "motion/react-client"
 
 export default function TentangKami() {
     return (
-        <div>
-        <section className="relative w-full min-h-screen bg-gray-100 overflow-hidden">
+        <>
+        <section className="relative w-full z-20 min-h-screen bg-gray-100 overflow-visible">
             {/* Background Elements */}
             {/* Subtle gradient from bottom-left */}
             <div className="absolute bottom-0 left-0 w-1/3 h-1/3 
@@ -119,26 +119,26 @@ export default function TentangKami() {
                 <div className="text-center">
                     <Button 
                         variant="secondary" 
-                        size="sm"
-                        className="px-4 cursor-pointer py-2 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                        className="px-4 cursor-pointer py-3 text-base font-medium shadow-md hover:shadow-lg transition-all duration-300"
                     >
                         Selengkapnya
                     </Button>
                 </div>
             </div>
-        </section>
-
             {/* Robot head graphic - Background */}
             <motion.div 
             initial={{opacity: 0, translateX: -100}}
             whileInView={{opacity: 1, translateX: 0}}
             transition={{duration: 1, delay: 1.2}}
             viewport={{once: true}}
-            className="absolute bottom-20 -left-8 w-32 h-32 sm:w-42 sm:h-42  z-0  relative">
-                <UiImage src="/assets/home/robot_tentangkami4x.png" alt="Robot Tentang Kami" fill className="object-contain object-bottom w-full h-full " />
+            className="  left-0 z-[100] w-32 h-32 sm:w-42 sm:h-42 -bottom-20  absolute">
+                <UiImage src="/assets/home/robot_tentangkami4x.png" alt="Robot Tentang Kami" fill className="object-contain object-bottom-left w-full h-full z-100" />
             </motion.div>
+        </section>
+
+            
             
 
-        </div>
+        </>
     );
 }

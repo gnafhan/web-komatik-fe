@@ -14,8 +14,11 @@ export default function Home() {
   return (
     <div className="w-full font-sans overflow-x-hidden">
       <HeroSection />
+      <div className="relative">
       <TentangKami />
       <DivisiKami />
+
+      </div>
       <ProgramKerja />
       <PrestasiKami />
       <GalleryKegiatan />

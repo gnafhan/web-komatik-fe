@@ -51,7 +51,7 @@ export default function DivisiKami() {
         }
     ]
     return(
-        <section className="relative flex flex-col items-center justify-center sm:p-14 p-4">
+        <section className="relative flex flex-col items-center justify-center sm:p-14 p-4 z-10">
             <div className="absolute bg-gradient-to-br from-[#0C2A5E] via-[#081936] to-[#030F22] w-full h-full top-0 left-0 -z-10"/>
             <motion.h1
             initial={{opacity: 0}}

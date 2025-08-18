@@ -7,12 +7,14 @@ import GalleryKegiatan from "@/features/home/components/GalleryKegiatan";
 import { getTentangKamiData } from "@/services/tentang-kami.service";
 import { getDivisionsData } from "@/services/divisions.service";
 import { getProgramKerjaData } from "@/services/program-kerja.service";
+import { getPrestasiData } from "@/services/prestasi.service";
 
 export default async function Home() {
-  const [tentangKamiData, divisionsData, programKerjaData] = await Promise.all([
+  const [tentangKamiData, divisionsData, programKerjaData, prestasiData] = await Promise.all([
     getTentangKamiData(),
     getDivisionsData(),
-    getProgramKerjaData()
+    getProgramKerjaData(),
+    getPrestasiData()
   ]);
 
   return (
@@ -21,7 +23,7 @@ export default async function Home() {
       <TentangKami data={tentangKamiData} />
       <DivisiKami data={divisionsData} />
       <ProgramKerja data={programKerjaData} />
-      <PrestasiKami />
+      <PrestasiKami data={prestasiData} />
       <GalleryKegiatan />
     </div>
   );

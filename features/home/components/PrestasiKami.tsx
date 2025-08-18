@@ -5,33 +5,25 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { UiImage } from "@/components/ui/image";
 import PrestasiCard from "@/components/ui/PrestasiCard";
-import { prestasiData, yearTabs } from "@/data/prestasi-data";
+import { PrestasiData } from "@/types/prestasi";
 import * as motion from "motion/react-client"
 
-interface Prestasi {
-  id: number;
-  title: string;
-  team: string;
-  members: string;
-  image: string;
-  year: number;
-  category: string;
+interface PrestasiKamiProps {
+  data: PrestasiData;
 }
 
-export default function PrestasiKami() {
+export default function PrestasiKami({ data }: PrestasiKamiProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
-  const [selectedYear, setSelectedYear] = useState(2025);
+  const [selectedYear, setSelectedYear] = useState(data.year_tabs[0] || '2024');
   
   // Filter Tahun
-  const filteredPrestasi = prestasiData.filter(prestasi => prestasi.year === selectedYear);
+  const filteredPrestasi = data.prestasi.filter(prestasi => prestasi.year === selectedYear);
 
   const updateButtons = useCallback((api: CarouselApi) => {
     if (!api) return;
@@ -58,7 +50,7 @@ export default function PrestasiKami() {
     api?.scrollNext();
   };
 
-  const handleYearChange = (year: number) => {
+  const handleYearChange = (year: string) => {
     setSelectedYear(year);
   };
 
@@ -84,17 +76,17 @@ export default function PrestasiKami() {
             transition={{duration: 1, delay: 1}} 
             viewport={{once: true}} 
             className="flex gap-6">
-              {yearTabs.map((tab) => (
+              {data.year_tabs.map((year) => (
                 <button
-                  key={tab.year}
-                  onClick={() => handleYearChange(tab.year)}
+                  key={year}
+                  onClick={() => handleYearChange(year)}
                   className={`text-lg lg:text-xl font-semibold transition-colors duration-200 ${
-                    selectedYear === tab.year
+                    selectedYear === year
                       ? 'text-red-600 border-b-2 border-red-600 pb-1'
                       : 'text-gray-400 hover:text-gray-600'
                   }`}
                 >
-                  {tab.label}
+                  {year}
                 </button>
               ))}
             </motion.div>
@@ -104,11 +96,11 @@ export default function PrestasiKami() {
         <div className="w-full border-t border-gray-200 my-6 relative">
             {/* Mascot */}
             <div className="absolute -right-5 animate-bounce -bottom-4 z-10 w-20 h-20 lg:w-28 lg:h-28">
-                <img
+                <UiImage
                 src="/assets/home/mascot-prestasi.png"
                 alt="Mascot"
+                fill
                 className="object-contain w-full h-full drop-shadow-lg"
-                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
             </div>
         </div>
@@ -133,7 +125,7 @@ export default function PrestasiKami() {
                     >
                       <PrestasiCard
                         title={prestasi.title}
-                        team={prestasi.team}
+                        team={prestasi.team_name}
                         members={prestasi.members}
                         image={prestasi.image}
                         // category={prestasi.category}

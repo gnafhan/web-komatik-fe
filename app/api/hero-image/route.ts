@@ -29,12 +29,20 @@ async function getFirebaseAdmin() {
 function getDefaultData(): HeroImageData {
   const defaultHeroImages: HeroImage[] = [];
   
-  // Generate 5 default hero images
-  for (let i = 1; i <= 5; i++) {
+  // Use existing images from public assets instead of non-existent hero images
+  const fallbackImages = [
+    '/assets/home/gemastik.jpg',
+    '/assets/home/bg_side.png',
+    '/assets/home/robot_tentangkami.png',
+    '/assets/home/mascot-prestasi.png',
+    '/assets/home/bg_side_tentangkami_left.png'
+  ];
+  
+  for (let i = 0; i < 5; i++) {
     defaultHeroImages.push({
-      id: i.toString(),
-      image: `/assets/home/hero-${i}.jpg`,
-      position: i
+      id: (i + 1).toString(),
+      image: fallbackImages[i] || '/assets/home/gemastik.jpg',
+      position: i + 1
     });
   }
 
@@ -56,6 +64,8 @@ export async function GET() {
     const collectionRef = db.collection('hero-image');
     const querySnapshot = await collectionRef.get();
     
+    console.log('Firebase query result:', querySnapshot.size, 'documents found');
+    
     if (querySnapshot.empty) {
       console.warn('Hero-image collection is empty, returning default data');
       return NextResponse.json(getDefaultData());
@@ -65,6 +75,7 @@ export async function GET() {
     
     querySnapshot.forEach((doc) => {
       const data = doc.data();
+      console.log('Firebase document data:', doc.id, data);
       
       if (data.created_at && typeof data.created_at === 'object' && 'toDate' in data.created_at) {
         data.created_at = data.created_at.toDate().toISOString();
@@ -81,6 +92,8 @@ export async function GET() {
         updated_at: data.updated_at
       });
     });
+    
+    console.log('Processed hero images:', heroImages);
     
     heroImages.sort((a, b) => a.position - b.position);
     

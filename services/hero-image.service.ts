@@ -3,11 +3,20 @@ import { HeroImageData, HeroImage } from '@/types/hero-image';
 function getDefaultData(): HeroImageData {
   const defaultHeroImages: HeroImage[] = [];
   
-  for (let i = 1; i <= 5; i++) {
+  // Use existing images from public assets instead of non-existent hero images
+  const fallbackImages = [
+    '/assets/home/gemastik.jpg',
+    '/assets/home/bg_side.png',
+    '/assets/home/robot_tentangkami.png',
+    '/assets/home/mascot-prestasi.png',
+    '/assets/home/bg_side_tentangkami_left.png'
+  ];
+  
+  for (let i = 0; i < 5; i++) {
     defaultHeroImages.push({
-      id: i.toString(),
-      image: `/assets/home/hero-${i}.jpg`,
-      position: i
+      id: (i + 1).toString(),
+      image: fallbackImages[i] || '/assets/home/gemastik.jpg',
+      position: i + 1
     });
   }
 

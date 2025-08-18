@@ -1,4 +1,4 @@
-import { BlurHeader } from "@/components/ui/navbar";
+
 import { Footer } from "@/components/ui/footer";
 import { HeroSection } from "@/features/TentangKami/components/HeroSection";
 import { ApaItuKomatik } from "@/features/TentangKami/components/ApaItuKomatik";
@@ -11,7 +11,6 @@ export default async function TentangKamiPage() {
 
   return (
     <div className="w-full font-sans overflow-x-hidden">
-      <BlurHeader />
       <HeroSection
         title={data.hero_title}
         description={data.hero_description}
@@ -29,7 +28,6 @@ export default async function TentangKamiPage() {
         title={data.video_title}
         videoUrl={data.video_url}
       />
-      <Footer />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function PrestasiCard({ title, team, members, image }: PrestasiCa
   return (
     <div className="flex flex-col bg-white rounded-2xl overflow-hidden m-2  hover:shadow-lg transition-shadow duration-300">
       {/* Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
+      <div className="relative aspect-[341/200] w-full overflow-hidden">
         <UiImage
           src={image}
           alt={title}

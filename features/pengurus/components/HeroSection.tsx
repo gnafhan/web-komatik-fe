@@ -17,7 +17,13 @@ export default function HeroSection() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-left">
+        <div 
+          className="text-left"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-out-cubic"
+        >
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Kepengurusan Kami</h1>
           <p className="text-lg md:text-xl opacity-80 max-w-3xl">
             Kegiatan tahunan yang rutin diselenggarakan KOMATIK 

@@ -12,6 +12,7 @@ import {
 import { UiImage } from "@/components/ui/image";
 import PrestasiCard from "@/components/ui/PrestasiCard";
 import { prestasiData, yearTabs } from "@/data/prestasi-data";
+import * as motion from "motion/react-client"
 
 interface Prestasi {
   id: number;
@@ -68,11 +69,21 @@ export default function PrestasiKami() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12">
           <div className="mb-8 lg:mb-0">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <motion.h2 
+            initial={{opacity: 0, translateX: -100}}
+            whileInView={{opacity: 1, translateX: 0}}
+            transition={{duration: 0.8, delay: 0.35}} 
+            viewport={{once: true}}
+            className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Prestasi Kami
-            </h2>
+            </motion.h2>
             {/* Year Tabs */}
-            <div className="flex gap-6">
+            <motion.div
+            initial={{opacity: 0, translateX: -100}}
+            whileInView={{opacity: 1, translateX: 0}}
+            transition={{duration: 1, delay: 1}} 
+            viewport={{once: true}} 
+            className="flex gap-6">
               {yearTabs.map((tab) => (
                 <button
                   key={tab.year}
@@ -86,13 +97,13 @@ export default function PrestasiKami() {
                   {tab.label}
                 </button>
               ))}
-            </div>
+            </motion.div>
           </div>
 
         </div>
         <div className="w-full border-t border-gray-200 my-6 relative">
             {/* Mascot */}
-            <div className="absolute -right-5 -bottom-4 z-10 w-20 h-20 lg:w-28 lg:h-28">
+            <div className="absolute -right-5 animate-bounce -bottom-4 z-10 w-20 h-20 lg:w-28 lg:h-28">
                 <img
                 src="/assets/home/mascot-prestasi.png"
                 alt="Mascot"
@@ -135,24 +146,26 @@ export default function PrestasiKami() {
                 <button
                   onClick={handlePrevious}
                   disabled={!canScrollPrev}
+                  aria-label="Sebelumnya"
                   className={`p-3 rounded-full border-2 transition-all duration-200 ${
                     canScrollPrev
                       ? 'border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
                       : 'border-gray-300 text-gray-300 cursor-not-allowed'
                   }`}
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-5 h-5" aria-hidden="true" focusable="false" />
                 </button>
                 <button
                   onClick={handleNext}
                   disabled={!canScrollNext}
+                  aria-label="Berikutnya"
                   className={`p-3 rounded-full border-2 transition-all duration-200 ${
                     canScrollNext
                       ? 'border-red-600 text-red-600 hover:bg-red-600 hover:text-white'
                       : 'border-gray-300 text-gray-300 cursor-not-allowed'
                   }`}
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-5 h-5" aria-hidden="true" focusable="false" />
                 </button>
               </div>
             </>

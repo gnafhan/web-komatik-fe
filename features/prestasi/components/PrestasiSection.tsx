@@ -3,11 +3,9 @@ import { useState } from "react";;
 import PrestasiCard from "@/components/ui/PrestasiCard";
 import { prestasiData, yearTabs } from "@/data/prestasi-data";
 
-
-
 export default function PrestasiSection() {
 
-  const [selectedYear, setSelectedYear] = useState(2025);
+  const [selectedYear, setSelectedYear] = useState(2024);
   
   // Filter Tahun
   const filteredPrestasi = prestasiData.filter(prestasi => prestasi.year === selectedYear);
@@ -22,12 +20,20 @@ export default function PrestasiSection() {
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-          <div className="mb-2 lg:mb-0">
+          <div 
+            className="mb-2 lg:mb-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Prestasi Kami
             </h2>
             {/* Year Tabs */}
-            <div className="flex gap-6">
+            <div 
+              className="flex gap-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               {yearTabs.map((tab) => (
                 <button
                   key={tab.year}
@@ -45,13 +51,22 @@ export default function PrestasiSection() {
           </div>
 
         </div>
-        <div className="w-full border-t border-gray-200 my-6 relative"/>
+        <div 
+          className="w-full border-t border-gray-200 my-6 relative"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        />
         {/* Carousel */}
         <div className="relative">
           {filteredPrestasi.length > 0 ? (
             <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-              {filteredPrestasi.map((prestasi) => (
-                        <div className="w-full" key={prestasi.id}>
+              {filteredPrestasi.map((prestasi, index) => (
+                        <div 
+                          className="w-full" 
+                          key={prestasi.id}
+                          data-aos="fade-up"
+                          data-aos-delay={200 + (index * 100)}
+                        >
                             <PrestasiCard
                               title={prestasi.title}
                               team={prestasi.team}
@@ -63,7 +78,11 @@ export default function PrestasiSection() {
                   ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div 
+              className="text-center py-12"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <p className="text-gray-500 text-lg">
                 Belum ada prestasi untuk tahun {selectedYear}
               </p>

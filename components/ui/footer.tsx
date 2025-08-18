@@ -23,21 +23,42 @@ export function Footer() {
         {/* Right: Contact Icons */}
         <div className="flex flex-row gap-8 items-center justify-center sm:justify-end">
           {/* Email */}
-          <a href="mailto:komatik@ugm.ac.id" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="mailto:komatik@ugm.ac.id"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="Kirim email ke KOMATIK UGM"
+            title="Kirim email ke KOMATIK UGM"
+          >
             <span className="flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#D60000] group-hover:bg-[#D60000]/10 transition-colors">
-              <svg width="32" height="32" fill="none" stroke="#D60000" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <svg width="32" height="32" fill="none" stroke="#D60000" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
             </span>
           </a>
           {/* WhatsApp */}
-          <a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://wa.me/628123456789"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="Hubungi KOMATIK UGM via WhatsApp"
+            title="Hubungi KOMATIK UGM via WhatsApp"
+          >
             <span className="flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#D60000] group-hover:bg-[#D60000]/10 transition-colors">
-              <PhoneCall className="w-6 h-6 text-[#D60000]" />
+              <PhoneCall className="w-6 h-6 text-[#D60000]" aria-hidden="true" />
             </span>
           </a>
           {/* Instagram */}
-          <a href="https://instagram.com/komatikugm" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://instagram.com/komatikugm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="Kunjungi Instagram KOMATIK UGM"
+            title="Kunjungi Instagram KOMATIK UGM"
+          >
             <span className="flex items-center justify-center w-16 h-16 rounded-full border-2 border-[#D60000] group-hover:bg-[#D60000]/10 transition-colors">
-                <Instagram className="w-6 h-6 text-[#D60000]" />
+                <Instagram className="w-6 h-6 text-[#D60000]" aria-hidden="true" />
             </span>
           </a>
         </div>
@@ -46,11 +67,11 @@ export function Footer() {
       <div className="bg-[#071633] py-8 px-6 flex flex-col md:flex-row items-center md:justify-between gap-6">
         {/* Left: Logo and Name */}
         <div className="flex items-center gap-3">
-          <img src="/logo/logo_and_text_white.png" alt="Komunitas Mahasiswa TIK UGM" className="h-10 w-auto" />
+          <img src="/logo/logo_and_text_white.webp" alt="Komunitas Mahasiswa TIK UGM" className="h-10 w-auto" />
         </div>
         {/* Right: Credit */}
         <div className="text-white text-base font-sans text-center md:text-right">
-          Designed and Developed by <span className="text-[#D60000] font-semibold">KOMATIK UGM</span>
+          Designed and Developed by <span className=" font-bold">KOMATIK UGM</span>
         </div>
       </div>
     </footer>

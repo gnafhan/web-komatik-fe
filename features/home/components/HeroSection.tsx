@@ -22,12 +22,6 @@ export default function HeroSection({ data }: HeroSectionProps) {
     const [current, setCurrent] = useState(0);
     const [images, setImages] = useState<any[]>([]);
 
-    // Debug: Log the data received from Firebase
-    useEffect(() => {
-        console.log('HeroSection received data:', data);
-        console.log('Hero images:', data.heroImages);
-    }, [data]);
-
     // Sequential entrance timings and smooth spring config
     const entrance = { type: 'spring', stiffness: 70, damping: 30, mass: 1.2 } as const;
     const delays = { left: 0.0, right: 0.5, title: 1.0, carousel: 1.6, indicators: 2.0 } as const;

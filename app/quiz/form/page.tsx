@@ -56,11 +56,11 @@ const FormPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center font-sans bg-[linear-gradient(117deg,_#0C2A5E_-13.2%,_#081936_45.72%,_#030F22_111.75%)] p-4">
+    <div className="min-h-screen flex items-center justify-center font-sans bg-[url('/assets/quiz/background.webp')] bg-cover bg-center p-4">
       
       {!isFormSubmitted ? (
         <div className="w-full max-w-lg md:max-w-4xl p-8 md-p-12 space-y-8 rounded-[60px] border-[5px] border-white/50 bg-[linear-gradient(117deg,_rgba(255,255,255,0.40)_-1.37%,_rgba(79,77,77,0.06)_113.39%)] shadow-[0_36px_49px_-15px_#040A2D,0_1px_24px_-1px_rgba(0,0,0,0.10)] backdrop-blur-[25px] relative">
-          <div className="absolute -top-12 -left-12 z-20">
+          <div className="absolute -top-14 -left-14 z-20">
             <motion.div animate={{ y: ["-10%", "10%", "-10%"] }} transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}>
               <Image src="/assets/home/robot_tentangkami.png" alt="Brion Robot" width={128} height={128} />
             </motion.div>
@@ -92,7 +92,7 @@ const FormPage = () => {
       ) : (
         <div className="relative isolate w-full max-w-5xl p-4 flex flex-col items-center">
             <div className="relative w-full max-w-2xl">
-                <div className="absolute -top-16 -left-16 z-20">
+                <div className="absolute -top-18 -left-18 z-20">
                     <motion.div animate={{ y: ["-10%", "10%", "-10%"] }} transition={{ duration: 2, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}>
                         <Image src="/assets/home/robot_tentangkami.png" alt="Brion Robot" width={128} height={128} />
                     </motion.div>

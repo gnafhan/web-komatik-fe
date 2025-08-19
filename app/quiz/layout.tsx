@@ -1,18 +1,21 @@
 import { Footer } from "@/components/ui/footer";
 import { BlurHeader } from "@/components/ui/navbar";
+import { QuizProvider } from "./quizContext";
 
-export default function ProkerLayout({
+export default function QuizLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      <BlurHeader />
-      <div className="w-full">
-        {children}
+    <QuizProvider>
+      <div>
+        <BlurHeader />
+        <div className="w-full">
+          {children}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </QuizProvider>
   );
 }

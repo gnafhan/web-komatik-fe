@@ -37,7 +37,7 @@ export function Footer() {
           </a>
           {/* WhatsApp */}
           <a
-            href="https://wa.me/628123456789"
+            href="https://wa.me/6285225434185"
             target="_blank"
             rel="noopener noreferrer"
             className="group"

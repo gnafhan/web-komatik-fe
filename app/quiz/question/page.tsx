@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useQuizContext } from "../quizContext";
 
 const questionsData = [
     {
@@ -213,13 +214,15 @@ const QuestionsPage = () => {
     const [mainPoints, setMainPoints] = useState<Scores>(initialScores);
     const [quizCompleted, setQuizCompleted] = useState(false);
 
+    const { setScores: updateScores, setMainPoints: updateMainPoints } = useQuizContext();
+
     useEffect(() => {
         if (quizCompleted) {
-            const scoresQuery = encodeURIComponent(JSON.stringify(scores));
-            const mainPointsQuery = encodeURIComponent(JSON.stringify(mainPoints));
-            router.push(`/quiz/result?scores=${scoresQuery}&mainPoints=${mainPointsQuery}`);
+            updateScores(scores);
+            updateMainPoints(mainPoints);
+            router.push("/quiz/result");
         }
-    }, [quizCompleted, scores, mainPoints, router]);
+    }, [quizCompleted, scores, mainPoints, router, updateScores, updateMainPoints]);
 
     const progressPercentage = ((currentQuestion + 1) / totalQuestions) * 100;
 

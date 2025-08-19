@@ -1,7 +1,7 @@
 "use client";
 
 import NextImage from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useQuizContext } from "../quizContext";
 import { useEffect, useState, Suspense, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
@@ -309,7 +309,7 @@ function ExportStory({
 
 
 function QuizResult() {
-  const searchParams = useSearchParams();
+  const { scores, mainPoints } = useQuizContext();
   const [recommendations, setRecommendations] =
     useState<Recommendation | null>(null);
 
@@ -317,45 +317,37 @@ function QuizResult() {
   const exportRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const scoresStr = searchParams.get("scores");
-    const mainPointsStr = searchParams.get("mainPoints");
+    const sortedDivisions = Object.keys(scores).sort((a, b) => {
+      const scoreA = scores[a];
+      const scoreB = scores[b];
+      if (scoreA !== scoreB) return scoreB - scoreA;
 
-    if (scoresStr && mainPointsStr) {
-      const scores = JSON.parse(decodeURIComponent(scoresStr));
-      const mainPoints = JSON.parse(decodeURIComponent(mainPointsStr));
+      const mainPointsA = mainPoints[a];
+      const mainPointsB = mainPoints[b];
+      if (mainPointsA !== mainPointsB) return mainPointsB - mainPointsA;
 
-      const sortedDivisions = Object.keys(scores).sort((a, b) => {
-        const scoreA = scores[a];
-        const scoreB = scores[b];
-        if (scoreA !== scoreB) return scoreB - scoreA;
+      return (
+        priorityOrder.indexOf(a as Division) -
+        priorityOrder.indexOf(b as Division)
+      );
+    }) as Division[];
 
-        const mainPointsA = mainPoints[a];
-        const mainPointsB = mainPoints[b];
-        if (mainPointsA !== mainPointsB) return mainPointsB - mainPointsA;
+    const mainDivisionKey = sortedDivisions[0];
+    if (!mainDivisionKey) return;
 
-        return (
-          priorityOrder.indexOf(a as Division) -
-          priorityOrder.indexOf(b as Division)
-        );
-      }) as Division[];
+    const mainRec = {
+      name: divisionDetails[mainDivisionKey].name,
+      icon: divisionDetails[mainDivisionKey].icon,
+      description: divisionDetails[mainDivisionKey].narrative,
+    };
 
-      const mainDivisionKey = sortedDivisions[0];
-      if (!mainDivisionKey) return;
+    const otherRecs = sortedDivisions.slice(1, 3).map((divisionKey) => ({
+      name: divisionDetails[divisionKey].name,
+      icon: divisionDetails[divisionKey].icon,
+    }));
 
-      const mainRec = {
-        name: divisionDetails[mainDivisionKey].name,
-        icon: divisionDetails[mainDivisionKey].icon,
-        description: divisionDetails[mainDivisionKey].narrative,
-      };
-
-      const otherRecs = sortedDivisions.slice(1, 3).map((divisionKey) => ({
-        name: divisionDetails[divisionKey].name,
-        icon: divisionDetails[divisionKey].icon,
-      }));
-
-      setRecommendations({ main: mainRec, other: otherRecs });
-    }
-  }, [searchParams]);
+    setRecommendations({ main: mainRec, other: otherRecs });
+  }, [scores, mainPoints]);
 
 const handleDownloadImage = useCallback(async () => {
   if (!exportRef.current) return;

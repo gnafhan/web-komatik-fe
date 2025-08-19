@@ -20,7 +20,7 @@ const questionsData = [
         id: 2,
         question: "Kamu tipe orang yang paling heboh pas…?",
         options: [
-            "Dapet soal sulit terus berhasil nemuin jawabannya",
+            "Dapet soal sulit terus berhasil nemuin jawaban",
             "Bikin sesuatu keliatan rapi, estetik, atau nyaman dipakai",
             "Nemu cara biar barang yang tadinya mati bisa hidup lagi",
             "Bisa ngerti pola atau rahasia tersembunyi dari kumpulan data",
@@ -68,7 +68,6 @@ type ScoringMap = {
     };
 };
 
-
 const scoringMap: ScoringMap = {
     0: { // Q1
         0: { CP: 2, CyberSec: 1 },
@@ -114,98 +113,8 @@ const initialScores: Scores = {
     UX: 0,
 };
 
-const IntroScreen = ({ onStart }: { onStart: () => void }) => {
-    const introText = "Halo, aku Brion 👋 Aku mau tau kamu tipenya kayak gimana. Nanti dari jawabanmu, aku bisa tebak kamu cocok main di divisi teknis mana di KOMATIK. Yuk, isi cepat aja ya!";
-    const characters = Array.from(introText);
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.03 },
-        },
-    };
-
-    const childVariants = {
-        hidden: { opacity: 0, y: 10 },
-        visible: { opacity: 1, y: 0 },
-    };
-
-    return (
-        <main
-            className="flex min-h-screen items-center justify-center bg-[#0F1B3A] text-white p-8"
-            style={{
-                backgroundImage: "url('/assets/quiz/background.webp')",
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-            }}
-        >
-            <div className="relative w-full max-w-2xl">
-                <div className="absolute -top-20 -left-12 z-20">
-                    <motion.div
-                        animate={{ y: ["-10%", "10%", "-10%"] }}
-                        transition={{
-                            duration: 2.5,
-                            ease: "easeInOut",
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                        }}
-                    >
-                        <Image
-                            src="/assets/home/robot_tentangkami.png"
-                            alt="Brion Robot"
-                            width={128}
-                            height={128}
-                            className="object-contain"
-                        />
-                    </motion.div>
-                </div>
-
-                <div
-                    className="relative z-10 flex items-center justify-center p-12"
-                    style={{
-                        borderRadius: '24px',
-                        border: '4px solid rgba(255, 255, 255, 0.50)',
-                        background: 'linear-gradient(117deg, rgba(255, 255, 255, 0.30) -1.37%, rgba(79, 77, 77, 0.06) 113.39%)',
-                        backdropFilter: 'blur(12px)',
-                    }}
-                >
-                    <motion.p
-                        className="text-white text-xl md:text-2xl font-medium leading-relaxed text-left"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        {characters.map((char, index) => (
-                            <motion.span key={index} variants={childVariants}>
-                                {char}
-                            </motion.span>
-                        ))}
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: introText.length * 0.03 + 0.5 }} // Delay tombol muncul setelah teks selesai
-                    className="absolute -bottom-14 right-4"
-                >
-                    <button
-                        onClick={onStart}
-                        className="rounded-lg bg-red-600 px-6 py-2.5 text-md font-semibold text-white shadow-lg transition hover:bg-red-700 hover:shadow-red-500/50"
-                    >
-                        Mulai Kuis
-                    </button>
-                </motion.div>
-            </div>
-        </main>
-    );
-};
-
-
 const QuestionsPage = () => {
     const router = useRouter();
-    const [quizStarted, setQuizStarted] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const totalQuestions = questionsData.length;
     const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -255,10 +164,6 @@ const QuestionsPage = () => {
             }
         }
     };
-
-    if (!quizStarted) {
-        return <IntroScreen onStart={() => setQuizStarted(true)} />;
-    }
 
     if (quizCompleted) {
         return (

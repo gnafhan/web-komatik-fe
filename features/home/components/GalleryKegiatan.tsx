@@ -110,7 +110,7 @@ export default function GalleryKegiatan({ data }: GalleryKegiatanProps) {
 						className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
 						style={{ willChange: "transform, opacity" }}
 					>
-						Gallery Kegiatan
+						Galeri Kegiatan
 					</motion.h2>
 				</div>
 

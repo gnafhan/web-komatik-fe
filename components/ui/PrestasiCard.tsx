@@ -30,12 +30,12 @@ export default function PrestasiCard({ title, team, members, image }: PrestasiCa
         </h3>
         
         <div className="mt-auto space-y-2">
-          <p className="text-sm font-medium text-gray-700">
+          <p className=" font-medium text-gray-700">
             {team}
           </p>
-          <p className="text-xs text-gray-500 line-clamp-2">
+          {/* <p className="text-xs text-gray-500 line-clamp-2">
             {membersText}
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

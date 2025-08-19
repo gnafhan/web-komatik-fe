@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { HelpCircle } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },
@@ -116,8 +117,9 @@ export function BlurHeader() {
         <div className="z-[10] hidden md:flex items-center gap-4 min-w-[120px] justify-end">
           <Link
             href={NAV_ITEMS[5].href}
-            className="hover:text-primary transition-colors font-semibold font-sans"
+            className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-semibold font-sans transition-all duration-200 shadow-lg hover:shadow-xl flex items-center gap-2 group"
           >
+            <HelpCircle className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
             {NAV_ITEMS[5].label}
           </Link>
         </div>
@@ -241,9 +243,16 @@ export function BlurHeader() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="hover:text-primary transition-colors px-2 py-2 block"
+                    className={`hover:text-primary transition-colors px-2 py-2 block ${
+                      item.label === "Quiz" 
+                        ? "bg-primary text-white px-4 py-3 rounded-lg font-semibold shadow-lg flex items-center gap-2 justify-center mx-2" 
+                        : ""
+                    }`}
                     onClick={() => setMenuOpen(false)}
                   >
+                    {item.label === "Quiz" && (
+                      <HelpCircle className="w-5 h-5" />
+                    )}
                     {item.label}
                   </Link>
                 )

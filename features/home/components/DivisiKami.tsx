@@ -44,7 +44,7 @@ export default function DivisiKami({ data }: DivisiKamiProps) {
             className="text-white text-base font-medium w-full md:w-2/3 lg:w-1/3 text-center mb-14 px-4"
             style={{ willChange: "transform, opacity" }}>Kami memiliki divisi teknis yang menaungi spesifik keilmuan untuk mempersiapkan talenta agar siap dalam berlomba</motion.p>
             
-            <div className="flex gap-6 w-full overflow-x-auto scrollbar-hide px-4 lg:hidden">
+            <div className="flex gap-6 w-full overflow-x-auto scrollbar-hide py-4 px-4 lg:hidden">
                 {data.divisions.map((divisi, index) =>(
                     <motion.div
                     key={index}

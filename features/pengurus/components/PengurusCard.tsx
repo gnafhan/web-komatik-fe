@@ -26,7 +26,7 @@ export default function PengurusCard({ image, position, name, index = 0 }: Pengu
         <img 
           src={image} 
           alt={`${position} - ${name}`} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       </div>
       <div 

@@ -4,7 +4,7 @@ import NextImage from "next/image";
 import { useQuizContext } from "../quizContext";
 import { useEffect, useState, Suspense, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 import { toPng } from "html-to-image";
 
 
@@ -37,7 +37,7 @@ const divisionDetails: Record<
   },
   Networking: {
     name: "Networking",
-    icon: "/assets/divisi/iot-gama.png",
+    icon: "/assets/divisi/as-gama.png",
     narrative:
       "Kamu tipe orang yang pengen semua koneksi lancar jaya. Divisi Networking pas buatmu!",
   },
@@ -312,6 +312,7 @@ function QuizResult() {
   const { scores, mainPoints } = useQuizContext();
   const [recommendations, setRecommendations] =
     useState<Recommendation | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const pageRef = useRef<HTMLElement | null>(null);
   const exportRef = useRef<HTMLDivElement>(null);
@@ -351,6 +352,8 @@ function QuizResult() {
 
 const handleDownloadImage = useCallback(async () => {
   if (!exportRef.current) return;
+  
+  setIsDownloading(true);
   try {
     await ensureAssetsReady(exportRef.current);
 
@@ -374,6 +377,8 @@ const handleDownloadImage = useCallback(async () => {
     a.click();
   } catch (e) {
     console.error("Gagal membuat gambar:", e);
+  } finally {
+    setIsDownloading(false);
   }
 }, []);
 
@@ -437,10 +442,15 @@ const handleDownloadImage = useCallback(async () => {
                 <div className="text-right">
                   <Button
                     onClick={handleDownloadImage}
-                    className="gap-2 bg-red-600 text-white hover:bg-red-700"
+                    disabled={isDownloading}
+                    className="gap-2 bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Download size={18} />
-                    Unduh Hasil
+                    {isDownloading ? (
+                      <Loader2 size={18} className="animate-spin" />
+                    ) : (
+                      <Download size={18} />
+                    )}
+                    {isDownloading ? "Mengunduh..." : "Unduh Hasil"}
                   </Button>
                 </div>
               </div>
